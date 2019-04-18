@@ -1,0 +1,19 @@
+{
+  "name": "greenmap-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reisman-internship-2019-greenmap/GreenMap-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reisman-internship-2019-greenmap/GreenMap-api/issues"
+  },
+  "homepage": "https://github.com/reisman-internship-2019-greenmap/GreenMap-api#readme"
+}
