@@ -1,2 +1,6 @@
 "use strict";
-describe("Index", () => {});
+describe("Index", () => {
+    it('Blank test', () => {
+        expect(true).toEqual(true);
+    });
+});
