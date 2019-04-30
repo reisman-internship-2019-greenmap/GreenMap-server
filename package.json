@@ -2,8 +2,9 @@
   "name": "greenmap-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "jest",
     "lint": "./node_modules/.bin/eslint --ignore-path .gitignore .",
     "lint-fix": " ./node_modules/.bin/eslint --fix --ignore-path .gitignore ."
@@ -15,10 +16,13 @@
   "author": "",
   "license": "ISC",
   "homepage": "https://github.com/reisman-internship-2019-greenmap/GreenMap-api#readme",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.16.4"
+  },
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-strongloop": "^2.1.0",
-    "jest": "^24.7.1"
+    "jest": "^24.7.1",
+    "nodemon": "^1.18.11"
   }
 }
