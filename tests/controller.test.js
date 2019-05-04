@@ -22,10 +22,10 @@ const products = [{
 beforeEach((done) => {
   Product.deleteMany({})
     .then(() => {
-      Product.insertMany(products);
+      return Product.insertMany(products);
+    }).then(() => {
       done();
-    }).catch((err) => {
-      throw err;
+      return Promise.resolve();
     });
 });
 
