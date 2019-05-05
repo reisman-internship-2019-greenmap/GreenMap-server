@@ -1,6 +1,7 @@
 const expect = require('expect');
 const request = require('supertest');
 const {ObjectID} = require('mongodb');
+const mongoose = require('mongoose');
 
 const {app} = require('./../controller');
 const {Product} = require('./../models/product');

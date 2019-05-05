@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "mocha tests/**/*.test.js",
+    "test": "mocha tests/**/*.test.js --exit",
     "test-watch": "nodemon --exec \"npm test\"",
     "lint": "./node_modules/.bin/eslint --ignore-path .gitignore .",
     "lint-fix": " ./node_modules/.bin/eslint --fix --ignore-path .gitignore ."
