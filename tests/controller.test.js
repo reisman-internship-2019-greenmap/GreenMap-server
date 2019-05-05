@@ -19,23 +19,16 @@ const products = [{
 }]
 
 // runs before each test cases - populates the collection with the dummy documents after deleting all the documents from the collection
-// beforeEach((done) => {
-//   Product.deleteMany({})
-//     .then(() => {
-//       return Product.insertMany(products);
-//     }).then(() => {
-//       done();
-//       return Promise.resolve();
-//     });
-// });
-
-beforeEach(() => {
-  return Promise.all([
-    Product.deleteMany({})
-  ])
+beforeEach((done) => {
+  Product.deleteMany({})
     .then(() => {
-      Product.insertMany(products)
-      return Promise.resolve();
+      return Product.insertMany(products);
+    }).catch((err) => {
+      throw err;
+    }).then(() => {
+      done();
+    }).catch((err) => {
+      throw err;
     });
 });
 
