@@ -23,12 +23,8 @@ beforeEach((done) => {
   Product.deleteMany({})
     .then(() => {
       return Product.insertMany(products);
-    }).catch((err) => {
-      throw err;
     }).then(() => {
       done();
-    }).catch((err) => {
-      throw err;
     });
 });
 
