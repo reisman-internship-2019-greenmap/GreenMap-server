@@ -3,8 +3,8 @@ const request = require('supertest');
 const {ObjectID} = require('mongodb');
 const mongoose = require('mongoose');
 
-const {app} = require('./../controller');
-const {Product} = require('./../models/product');
+const {app} = require('./../server');
+const {Product} = require('../models/product');
 
 // dummy documents
 const products = [{
