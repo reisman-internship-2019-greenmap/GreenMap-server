@@ -9,14 +9,12 @@ const {Product} = require('../models/product');
 // dummy documents
 const products = [{
   _id: new ObjectID(),
-  name: 'Pixel 3',
-  manufacturer: 'Google',
-  type: 'Smartphone'
+  product: 'mobile phone',
+  manufacturers: ["Samsung", "AT&T", "LG Electronics"]
 }, {
   _id: new ObjectID(),
-  name: 'Samsung Galaxy S9',
-  manufacturer: 'Samsung',
-  type: 'Smartphone'
+  product: 'smartphone',
+  manufacturers: ["Nokia", "Lenovo", "Oppo"]
 }]
 
 // runs before each test cases - populates the collection with the dummy documents after deleting all the documents from the collection
