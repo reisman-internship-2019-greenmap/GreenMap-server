@@ -4,11 +4,14 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "test": "mocha tests/**/*.test.js --exit",
     "test-watch": "nodemon --exec \"npm test\"",
     "lint": "./node_modules/.bin/eslint --ignore-path .gitignore .",
     "lint-fix": " ./node_modules/.bin/eslint --fix --ignore-path .gitignore ."
+  },
+  "engines": {
+    "node": "10.10.0"
   },
   "repository": {
     "type": "git",

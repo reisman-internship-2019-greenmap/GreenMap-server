@@ -13,7 +13,7 @@ const express = require('express'),
 
 // Map global promise
 mongoose.Promise = global.Promise;
-mongodbUrl = 'mongodb://localhost:27017/product-test';
+mongodbUrl = (process.env.MONGODB_URI || 'mongodb://localhost:27017/product-test');
 
 // Set up connection to Mongoose
 mongoose.connect(mongodbUrl, {useNewUrlParser: true});
