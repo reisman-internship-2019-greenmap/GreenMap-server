@@ -1,10 +1,9 @@
 const expect = require('expect');
 const request = require('supertest');
 const {ObjectID} = require('mongodb');
-const mongoose = require('mongoose');
 
 const {app} = require('./../server');
-const {Product} = require('../models/product');
+const {Product} = require('../schemas/product');
 
 // dummy documents
 const products = [{
@@ -15,7 +14,7 @@ const products = [{
   _id: new ObjectID(),
   product: 'smartphone',
   manufacturers: ["Nokia", "Lenovo", "Oppo"]
-}]
+}];
 
 // runs before each test cases - populates the collection with the dummy documents after deleting all the documents from the collection
 beforeEach((done) => {
