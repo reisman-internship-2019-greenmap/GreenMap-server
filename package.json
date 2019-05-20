@@ -5,9 +5,13 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "jest",
+    "test": "mocha tests/**/*.test.js --exit",
+    "test-watch": "nodemon --exec \"npm test\"",
     "lint": "./node_modules/.bin/eslint --ignore-path .gitignore .",
     "lint-fix": " ./node_modules/.bin/eslint --fix --ignore-path .gitignore ."
+  },
+  "engines": {
+    "node": "10.10.0"
   },
   "repository": {
     "type": "git",
@@ -17,12 +21,17 @@
   "license": "ISC",
   "homepage": "https://github.com/reisman-internship-2019-greenmap/GreenMap-api#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "body-parser": "^1.19.0",
+    "express": "^4.16.4",
+    "mongodb": "^3.2.3",
+    "mongoose": "^5.5.5",
+    "wikidata-sdk": "^6.4.0"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-strongloop": "^2.1.0",
-    "jest": "^24.7.1",
+    "expect": "^24.7.1",
+    "mocha": "^6.1.4",
     "nodemon": "^1.18.11"
   }
 }
