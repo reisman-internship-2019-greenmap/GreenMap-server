@@ -1,12 +1,24 @@
 const mongoose = require('mongoose');
 
 let Product = mongoose.model("Product", {
-  product: {
+  barcodeId: {
     type: String,
     required: true
   },
-  manufacturers: {
-    type: Array,
+  name: {
+    type: String,
+    required: true
+  },
+  category: {
+    type: String,
+    required: true
+  },
+  manufacturer: {
+    type: String,
+    required: true
+  },
+  ESG: {
+    type: String,
     required: true
   }
 });
