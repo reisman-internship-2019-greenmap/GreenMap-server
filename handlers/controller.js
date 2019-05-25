@@ -17,7 +17,7 @@ let ping = async (req, res) => {
 };
 
 /**
- * Gets product from DAL.
+ * Gets product from DAL - if not found it is retrieved from Barcodelookup and then stored in MongoDB.
  * @param req request.
  * @param res response.
  * @returns {Promise<void>} n/a
@@ -80,9 +80,3 @@ module.exports =  {
     getProduct: getProduct,
     addProduct: addProduct
 };
-
-
-
-
-
-
