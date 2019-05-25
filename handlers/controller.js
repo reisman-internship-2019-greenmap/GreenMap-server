@@ -41,12 +41,21 @@ let getProduct = async (req, res) => {
                 return res.status(bclRes.statusCode).send({ data: bclRes.data });
             }
 
+            let manufacturer;
+
+            if (bclRes.data.manufacturer)
+                manufacturer = bclRes.data.manufacturer;
+            else if (bclRes.data.brand)
+                manufacturer = bclRes.data.brand;
+            else
+                console.error(`cannot find a manufacturer for ${barcode}`);
+
             let newProduct = new Product ({
                 _id: new ObjectID(),
                 barcode: barcode,
                 name: bclRes.data.product_name,
                 category: bclRes.data.category,
-                manufacturer: bclRes.data.manufacturer,
+                manufacturer: manufacturer,
                 ESG: "0"
             });
 
