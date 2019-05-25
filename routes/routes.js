@@ -9,4 +9,5 @@ const controller = require('../handlers/controller');
 module.exports = (app) => {
     app.route('/ping').get(controller.ping).post(controller.ping);
     app.route('/:id').get(controller.getProduct);
+    app.route('/').post(controller.addProduct);
 };
