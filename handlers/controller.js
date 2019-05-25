@@ -15,6 +15,10 @@ let ping = (req, res) => {
     res.status(StatusCode.EASTER_EGG).send('Ping!');
 };
 
+let welcome = (req, res) => {
+    res.status(StatusCode.EASTER_EGG).send('Welcome to the Greenmap-API!');
+};
+
 /**
  * Gets product from DAL - if not found it is retrieved from Barcodelookup and then stored in MongoDB.
  * @param req request.
@@ -148,6 +152,7 @@ let addProductByValue = (req, res, next) => {
 
 module.exports =  {
     ping: ping,
+    welcome: welcome,
     getProduct: getProduct,
     addProductByLookup: addProductByLookup,
     addProductByValue: addProductByValue
