@@ -24,7 +24,7 @@ let ping = (req, res) => {
 let getProduct = (req, res) => {
     connectDb().then(async () => {
         if (!req.params.id)
-            return res.status(StatusCode.PRECONDITION_FAILED)(null);
+            return res.status(StatusCode.PRECONDITION_FAILED).send(null);
         // else
         let barcode = req.params.id;
         try {
@@ -56,7 +56,7 @@ let getProduct = (req, res) => {
                     console.error(err);
                     return res.status(StatusCode.INTERNAL_SERVER_ERROR).send(err);
                 }
-                // else
+                // else return new product
                 console.log(`stored ${data} in mongodb`);
                 return res.status(StatusCode.CREATED).send(newProduct);
             });
@@ -74,7 +74,7 @@ let getProduct = (req, res) => {
 let addProductByLookup = async(req, res) => {
     connectDb().then(async () => {
         if (!req.query.barcode)
-            return res.status(StatusCode.PRECONDITION_FAILED)(null);
+            return res.status(StatusCode.PRECONDITION_FAILED).send(null);
         // else
         let barcode = req.query.barcode;
         let doc = await models.Product.findOne({ barcode });
