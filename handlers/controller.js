@@ -1,6 +1,5 @@
 require('dotenv').config();
 const bc = require('barcodelookup');
-const { ObjectID } = require('mongodb');
 const { models, connectDb } = require('../dal/database');
 const { StatusCode } = require('../shared/constants');
 const Product = require('../schemas/product');
@@ -12,7 +11,7 @@ const Product = require('../schemas/product');
  * @param res response.
  * @returns {Promise<void>} n/a
  */
-let ping = async (req, res) => {
+let ping = (req, res) => {
     res.status(StatusCode.EASTER_EGG).send('Ping!');
 };
 
@@ -22,27 +21,28 @@ let ping = async (req, res) => {
  * @param res response.
  * @returns {Promise<void>} n/a
  */
-let getProduct = async (req, res) => {
-    let barcode = req.params.id;
-
+let getProduct = (req, res) => {
     connectDb().then(async () => {
+        if (!req.params.id)
+            return res.status(StatusCode.PRECONDITION_FAILED)(null);
+        // else
+        let barcode = req.params.id;
         try {
             // search for product in MongoDB
             let doc = await models.Product.findOne({barcode});
-            if(doc) {
+            if (doc) {
                 console.log(`found ${doc.barcode} in mongodb`);
                 return res.status(StatusCode.OK).send({doc});
             }
 
             // else query barcodelookup for product
             let bclRes = await bc.lookup({key: process.env.API_KEY, barcode: barcode});
-            if(bclRes.statusCode !== StatusCode.OK) {
+            if (bclRes.statusCode !== StatusCode.OK) {
                 console.error(`error looking up ${barcode} in barcodelookup`);
                 return res.status(bclRes.statusCode).send({ data: bclRes.data });
             }
 
             let newProduct = new Product ({
-                _id: new ObjectID(),
                 barcode: barcode,
                 name: bclRes.data.product_name,
                 category: bclRes.data.category,
@@ -52,7 +52,7 @@ let getProduct = async (req, res) => {
 
             // save new product to MongoDB
             newProduct.save( (err, data) => {
-                if(err) {
+                if (err) {
                     console.error(err);
                     return res.status(StatusCode.INTERNAL_SERVER_ERROR).send(err);
                 }
@@ -61,7 +61,7 @@ let getProduct = async (req, res) => {
                 return res.status(StatusCode.CREATED).send(newProduct);
             });
 
-        } catch (err) {
+        } catch(err) {
             console.error(err);
             return res.status(StatusCode.BAD_REQUEST).send(err);
         }
@@ -71,12 +71,84 @@ let getProduct = async (req, res) => {
     });
 };
 
-let addProduct = async(req, res) => {
+let addProductByLookup = async(req, res) => {
+    connectDb().then(async () => {
+        if (!req.query.barcode)
+            return res.status(StatusCode.PRECONDITION_FAILED)(null);
+        // else
+        let barcode = req.query.barcode;
+        let doc = await models.Product.findOne({ barcode });
+        if (doc) {
+            console.error(`product ${req.query.barcode} already exists in database`);
+            return res.status(StatusCode.CONFLICT).send({msg: `product ${req.query.barcode} already exists in database`});
+        }
+        // else
+        // query barcodelookup for product
+        let bclRes = await bc.lookup({key: process.env.API_KEY, barcode: barcode});
+        if(bclRes.statusCode !== StatusCode.OK) {
+            console.error(`error looking up ${barcode} in barcodelookup`);
+            return res.status(bclRes.statusCode).send({ data: bclRes.data });
+        }
 
+        let newProduct = new Product ({
+            barcode: req.query.barcode,
+            name: bclRes.data.product_name,
+            category: bclRes.data.category,
+            manufacturer: bclRes.data.manufacturer,
+            ESG: "0"
+        });
+
+        // save new product to MongoDB
+        newProduct.save((err, data) => {
+            if (err) {
+                console.error(err);
+                return res.status(StatusCode.INTERNAL_SERVER_ERROR).send(err);
+            }
+            // else
+            console.log(`stored ${data} in mongodb`);
+            return res.status(StatusCode.CREATED).send(newProduct);
+        });
+    });
+};
+
+let addProductByValue = (req, res, next) => {
+    connectDb().then(async () => {
+        if (req.query.barcode && !req.query.name && !req.query.category && !req.query.manufacturer) {
+            return next(); // to addProductByLookup
+        }
+        else if (!req.query.barcode && !req.query.name && !req.query.category && !req.query.manufacturer)
+            return res.status(StatusCode.PRECONDITION_FAILED).send(null);
+        // else
+        let doc = await models.Product.findOne(req.query.barcode);
+        if (doc) {
+            console.error(`product ${req.body.barcode} already exists in database`);
+            return res.status(StatusCode.CONFLICT).send({msg: `product ${doc.body.barcode} already exists in database`});
+        }
+        // else
+        let newProduct = new Product({
+            barcode: req.query.barcode,
+            name: req.query.product_name,
+            category: req.query.category,
+            manufacturer: req.query.manufacturer,
+            ESG: "0"
+        });
+
+        // save new product to MongoDB
+        newProduct.save((err, data) => {
+            if (err) {
+                console.error(err);
+                return res.status(StatusCode.INTERNAL_SERVER_ERROR).send(err);
+            }
+            // else
+            console.log(`stored ${data} in mongodb`);
+            return res.status(StatusCode.CREATED).send(newProduct);
+        });
+    })
 };
 
 module.exports =  {
     ping: ping,
     getProduct: getProduct,
-    addProduct: addProduct
+    addProductByLookup: addProductByLookup,
+    addProductByValue: addProductByValue
 };
