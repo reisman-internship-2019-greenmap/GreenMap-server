@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 const Product = require('../schemas/product');
 const server = process.env.DATABASE_URL || '127.0.0.1';

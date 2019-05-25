@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 let Product = mongoose.model("Product", {
-  barcodeId: {
+  barcode: {
     type: String,
     required: true
   },
@@ -18,8 +18,7 @@ let Product = mongoose.model("Product", {
     required: true
   },
   ESG: {
-    type: String,
-    // Optional by default
+    type: String
   }
 });
 
