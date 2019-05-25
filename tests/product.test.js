@@ -5,14 +5,14 @@ const { models, connectDb } = require ('../dal/database');
 // dummy documents
 const products = [{
   _id: new ObjectID(),
-  barcodeId: "8152210266539",
+  barcode: "8152210266539",
   name: "Macbook Pro 2018",
   category: "laptop",
   manufacturer: "Apple",
   ESG: "100"
 }, {
   _id: new ObjectID(),
-  barcodeId: "07350053850019",
+  barcode: "07350053850019",
   name: "Microsoft Surface Pro 6",
   category: "laptop",
   manufacturer: "Microsoft",

@@ -1,4 +1,10 @@
-const { models, connectDb } = require ('../dal/database');
+require('dotenv').config();
+const bc = require('barcodelookup');
+const { ObjectID } = require('mongodb');
+const { models, connectDb } = require('../dal/database');
+const { StatusCode } = require('../shared/constants');
+const Product = require('../schemas/product');
+
 
 /**
  * Simple ping endpoint.
@@ -7,7 +13,7 @@ const { models, connectDb } = require ('../dal/database');
  * @returns {Promise<void>} n/a
  */
 let ping = async (req, res) => {
-    res.status(200).send('Ping!');
+    res.status(StatusCode.EASTER_EGG).send('Ping!');
 };
 
 /**
@@ -17,18 +23,51 @@ let ping = async (req, res) => {
  * @returns {Promise<void>} n/a
  */
 let getProduct = async (req, res) => {
-    let barcodeId = req.params.id;
+    let barcode = req.params.id;
 
     connectDb().then(async () => {
-        models.Product.findOne({ barcodeId })
-            .then((doc) => {
-                if(!doc)
-                    return res.status(404).send();
-                else
-                    res.status(200).send({ doc });
-            }).catch((err) => res.status(400).send(err));
+        try {
+            // search for product in MongoDB
+            let doc = await models.Product.findOne({barcode});
+            if(doc) {
+                console.log(`found ${doc.barcode} in mongodb`);
+                return res.status(StatusCode.OK).send({doc});
+            }
+
+            // else query barcodelookup for product
+            let bclRes = await bc.lookup({key: process.env.API_KEY, barcode: barcode});
+            if(bclRes.statusCode !== StatusCode.OK) {
+                console.error(`error looking up ${barcode} in barcodelookup`);
+                return res.status(bclRes.statusCode).send({ data: bclRes.data });
+            }
+
+            let newProduct = new Product ({
+                _id: new ObjectID(),
+                barcode: barcode,
+                name: bclRes.data.product_name,
+                category: bclRes.data.category,
+                manufacturer: bclRes.data.manufacturer,
+                ESG: "0"
+            });
+
+            // save new product to MongoDB
+            newProduct.save( (err, data) => {
+                if(err) {
+                    console.error(err);
+                    return res.status(StatusCode.INTERNAL_SERVER_ERROR).send(err);
+                }
+                // else
+                console.log(`stored ${data} in mongodb`);
+                return res.status(StatusCode.CREATED).send(newProduct);
+            });
+
+        } catch (err) {
+            console.error(err);
+            return res.status(StatusCode.BAD_REQUEST).send(err);
+        }
     }).catch((err) => {
-        res.status(500).send(err);
+        console.error(err);
+        return res.status(StatusCode.INTERNAL_SERVER_ERROR).send(err);
     });
 };
 

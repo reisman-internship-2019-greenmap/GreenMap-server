@@ -1,13 +1,13 @@
 /**
- * Core server imports.
+ * Core server requirements.
  */
+require('dotenv').config();
 const express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
     Config = require('./Config'),
     port = process.env.PORT || 3000,
     routes = require('./routes/routes');
-
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
