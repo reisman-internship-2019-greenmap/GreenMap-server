@@ -15,6 +15,10 @@ let ping = (req, res) => {
     res.status(StatusCode.EASTER_EGG).send('Ping!');
 };
 
+let welcome = (req, res) => {
+    res.status(StatusCode.EASTER_EGG).send('Welcome to the Greenmap-API!');
+};
+
 /**
  * Gets product from DAL - if not found it is retrieved from Barcodelookup and then stored in MongoDB.
  * @param req request.
@@ -36,7 +40,7 @@ let getProduct = (req, res) => {
             }
 
             // else query barcodelookup for product
-            let bclRes = await bc.lookup({key: process.env.API_KEY, barcode: barcode});
+            let bclRes = await bc.lookup({key: process.env.BC_API_KEY, barcode: barcode});
             if (bclRes.statusCode !== StatusCode.OK) {
                 console.error(`error looking up ${barcode} in barcodelookup`);
                 return res.status(bclRes.statusCode).send({ data: bclRes.data });
@@ -84,7 +88,7 @@ let addProductByLookup = async(req, res) => {
         }
         // else
         // query barcodelookup for product
-        let bclRes = await bc.lookup({key: process.env.API_KEY, barcode: barcode});
+        let bclRes = await bc.lookup({key: process.env.BC_API_KEY, barcode: barcode});
         if(bclRes.statusCode !== StatusCode.OK) {
             console.error(`error looking up ${barcode} in barcodelookup`);
             return res.status(bclRes.statusCode).send({ data: bclRes.data });
@@ -148,6 +152,7 @@ let addProductByValue = (req, res, next) => {
 
 module.exports =  {
     ping: ping,
+    welcome: welcome,
     getProduct: getProduct,
     addProductByLookup: addProductByLookup,
     addProductByValue: addProductByValue
