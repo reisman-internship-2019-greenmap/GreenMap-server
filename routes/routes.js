@@ -1,5 +1,6 @@
 'use strict';
 const controller = require('../handlers/controller');
+
 /**
  * Exports app routes.
  * This convention enables developers to chain CRUD operations with distinct controllers to
