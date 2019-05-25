@@ -19,7 +19,7 @@ let Product = mongoose.model("Product", {
   },
   ESG: {
     type: String,
-    required: true
+    // Optional by default
   }
 });
 
