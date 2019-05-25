@@ -1,10 +1,8 @@
 require('dotenv').config();
 const bc = require('barcodelookup');
-const { ObjectID } = require('mongodb');
 const { models, connectDb } = require('../dal/database');
 const { StatusCode } = require('../shared/constants');
 const Product = require('../schemas/product');
-
 
 /**
  * Simple ping endpoint.
@@ -51,7 +49,6 @@ let getProduct = async (req, res) => {
                 console.error(`cannot find a manufacturer for ${barcode}`);
 
             let newProduct = new Product ({
-                _id: new ObjectID(),
                 barcode: barcode,
                 name: bclRes.data.product_name,
                 category: bclRes.data.category,
