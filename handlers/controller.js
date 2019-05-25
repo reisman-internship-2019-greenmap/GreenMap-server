@@ -36,7 +36,7 @@ let getProduct = (req, res) => {
             }
 
             // else query barcodelookup for product
-            let bclRes = await bc.lookup({key: process.env.API_KEY, barcode: barcode});
+            let bclRes = await bc.lookup({key: process.env.BC_API_KEY, barcode: barcode});
             if (bclRes.statusCode !== StatusCode.OK) {
                 console.error(`error looking up ${barcode} in barcodelookup`);
                 return res.status(bclRes.statusCode).send({ data: bclRes.data });
@@ -84,7 +84,7 @@ let addProductByLookup = async(req, res) => {
         }
         // else
         // query barcodelookup for product
-        let bclRes = await bc.lookup({key: process.env.API_KEY, barcode: barcode});
+        let bclRes = await bc.lookup({key: process.env.BC_API_KEY, barcode: barcode});
         if(bclRes.statusCode !== StatusCode.OK) {
             console.error(`error looking up ${barcode} in barcodelookup`);
             return res.status(bclRes.statusCode).send({ data: bclRes.data });
