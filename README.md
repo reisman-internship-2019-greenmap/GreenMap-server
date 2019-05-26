@@ -3,7 +3,7 @@
 
 # Greenmap-Server
 
-Greenmap-Server is a Node.js REST-api built to serve the [Greenmap-app](https://github.com/reisman-internship-2019-greenmap/GreenMap-app). 
+Greenmap-Server is a Node.js RESTful-api built to serve the [Greenmap-app](https://github.com/reisman-internship-2019-greenmap/GreenMap-app). 
 
 ### Prerequisites
 
