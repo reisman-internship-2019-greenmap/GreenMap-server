@@ -96,14 +96,14 @@ let getProduct = (req, res) => {
  */
 let addProductByValue = (req, res, next) => {
     connectDb().then(async () => {
-        console.log(req.body);
+        let barcode = req.body.barcode;
         if (req.body.barcode && !req.body.name && !req.body.category && !req.body.manufacturer) {
             return next(); // to addProductByLookup
         }
         else if (!req.body.barcode && !req.body.name && !req.body.category && !req.body.manufacturer)
             return res.status(StatusCode.PRECONDITION_FAILED).send(null);
         // else`
-        let doc = await models.Product.findOne({barcode : req.body.barcode});
+        let doc = await models.Product.findOne({ barcode });
         if (doc) {
             console.error(`product ${req.body.barcode} already exists in database`);
             return res.status(StatusCode.CONFLICT).send({msg: `product ${doc.body.barcode} already exists in database`});
