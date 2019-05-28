@@ -59,8 +59,8 @@ let getProduct = (req, res) => {
 
             let newProduct = new models.Product ({
                 barcode: barcode,
-                name: bclRes.data.product_name,
-                category: bclRes.data.category,
+                name: bclRes.data.name,
+                category: bclRes.data.category.split('>').map(Function.prototype.call, String.prototype.trim),
                 manufacturer: manufacturer,
                 ESG: "0"
             });
@@ -96,13 +96,14 @@ let getProduct = (req, res) => {
  */
 let addProductByValue = (req, res, next) => {
     connectDb().then(async () => {
+        console.log(req.body);
         if (req.body.barcode && !req.body.name && !req.body.category && !req.body.manufacturer) {
             return next(); // to addProductByLookup
         }
         else if (!req.body.barcode && !req.body.name && !req.body.category && !req.body.manufacturer)
             return res.status(StatusCode.PRECONDITION_FAILED).send(null);
-        // else
-        let doc = await models.Product.findOne(req.body.barcode);
+        // else`
+        let doc = await models.Product.findOne({barcode : req.body.barcode});
         if (doc) {
             console.error(`product ${req.body.barcode} already exists in database`);
             return res.status(StatusCode.CONFLICT).send({msg: `product ${doc.body.barcode} already exists in database`});
@@ -110,8 +111,8 @@ let addProductByValue = (req, res, next) => {
         // else
         let newProduct = new models.Product({
             barcode: req.body.barcode,
-            name: req.body.product_name,
-            category: req.body.category,
+            name: req.body.name,
+            category: req.body.category.split('>').map(Function.prototype.call, String.prototype.trim),
             manufacturer: req.body.manufacturer,
             ESG: "0"
         });
@@ -156,8 +157,8 @@ let addProductByLookup = async(req, res) => {
 
         let newProduct = new models.Product ({
             barcode: req.body.barcode,
-            name: bclRes.data.product_name,
-            category: bclRes.data.category,
+            name: bclRes.data.name,
+            category: bclRes.data.category.split('>').map(Function.prototype.call, String.prototype.trim),
             manufacturer: bclRes.data.manufacturer,
             ESG: "0"
         });
