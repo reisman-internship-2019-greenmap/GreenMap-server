@@ -85,14 +85,14 @@ let getProduct = (req, res) => {
 
 let addProductByLookup = async(req, res) => {
     connectDb().then(async () => {
-        if (!req.query.barcode)
+        if (!req.body.barcode)
             return res.status(StatusCode.PRECONDITION_FAILED).send(null);
         // else
-        let barcode = req.query.barcode;
+        let barcode = req.body.barcode;
         let doc = await models.Product.findOne({ barcode });
         if (doc) {
-            console.error(`product ${req.query.barcode} already exists in database`);
-            return res.status(StatusCode.CONFLICT).send({msg: `product ${req.query.barcode} already exists in database`});
+            console.error(`product ${req.body.barcode} already exists in database`);
+            return res.status(StatusCode.CONFLICT).send({msg: `product ${req.body.barcode} already exists in database`});
         }
         // else
         // query barcodelookup for product
@@ -103,7 +103,7 @@ let addProductByLookup = async(req, res) => {
         }
 
         let newProduct = new Product ({
-            barcode: req.query.barcode,
+            barcode: req.body.barcode,
             name: bclRes.data.product_name,
             category: bclRes.data.category,
             manufacturer: bclRes.data.manufacturer,
@@ -125,23 +125,23 @@ let addProductByLookup = async(req, res) => {
 
 let addProductByValue = (req, res, next) => {
     connectDb().then(async () => {
-        if (req.query.barcode && !req.query.name && !req.query.category && !req.query.manufacturer) {
+        if (req.body.barcode && !req.body.name && !req.body.category && !req.body.manufacturer) {
             return next(); // to addProductByLookup
         }
-        else if (!req.query.barcode && !req.query.name && !req.query.category && !req.query.manufacturer)
+        else if (!req.body.barcode && !req.body.name && !req.body.category && !req.body.manufacturer)
             return res.status(StatusCode.PRECONDITION_FAILED).send(null);
         // else
-        let doc = await models.Product.findOne(req.query.barcode);
+        let doc = await models.Product.findOne(req.body.barcode);
         if (doc) {
             console.error(`product ${req.body.barcode} already exists in database`);
             return res.status(StatusCode.CONFLICT).send({msg: `product ${doc.body.barcode} already exists in database`});
         }
         // else
         let newProduct = new Product({
-            barcode: req.query.barcode,
-            name: req.query.product_name,
-            category: req.query.category,
-            manufacturer: req.query.manufacturer,
+            barcode: req.body.barcode,
+            name: req.body.product_name,
+            category: req.body.category,
+            manufacturer: req.body.manufacturer,
             ESG: "0"
         });
 
