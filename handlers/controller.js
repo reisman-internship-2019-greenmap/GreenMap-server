@@ -59,7 +59,7 @@ let getProduct = (req, res) => {
 
             let newProduct = new models.Product ({
                 barcode: barcode,
-                name: bclRes.data.name,
+                name: bclRes.data.product_name,
                 category: bclRes.data.category.split('>').map(Function.prototype.call, String.prototype.trim),
                 manufacturer: manufacturer,
                 ESG: "0"
@@ -106,12 +106,12 @@ let addProductByValue = (req, res, next) => {
         let doc = await models.Product.findOne({ barcode });
         if (doc) {
             console.error(`product ${req.body.barcode} already exists in database`);
-            return res.status(StatusCode.CONFLICT).send({msg: `product ${doc.body.barcode} already exists in database`});
+            return res.status(StatusCode.CONFLICT).send({msg: `product ${doc.barcode} already exists in database`});
         }
         // else
         let newProduct = new models.Product({
             barcode: req.body.barcode,
-            name: req.body.name,
+            name: req.body.product_name,
             category: req.body.category.split('>').map(Function.prototype.call, String.prototype.trim),
             manufacturer: req.body.manufacturer,
             ESG: "0"
@@ -157,7 +157,7 @@ let addProductByLookup = async(req, res) => {
 
         let newProduct = new models.Product ({
             barcode: req.body.barcode,
-            name: bclRes.data.name,
+            name: bclRes.data.product_name,
             category: bclRes.data.category.split('>').map(Function.prototype.call, String.prototype.trim),
             manufacturer: bclRes.data.manufacturer,
             ESG: "0"
