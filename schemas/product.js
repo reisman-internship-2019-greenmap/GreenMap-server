@@ -10,7 +10,7 @@ let Product = mongoose.model("Product", {
     required: true
   },
   category: {
-    type: String,
+    type: Array,
     required: true
   },
   manufacturer: {
