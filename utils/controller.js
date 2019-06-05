@@ -37,7 +37,9 @@ exports.getSimilarCategory = function(category, res) {
         {$group: {
           _id: '$manufacturer',
           doc: { $first: '$$ROOT' }
-        }}
+        }},
+        { $sort: { "doc.ESG": -1 } },
+        { $limit: 5 }
       ]);
       if(docs) {
         console.log(docs);
