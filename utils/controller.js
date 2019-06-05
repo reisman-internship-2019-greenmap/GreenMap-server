@@ -1,16 +1,18 @@
-const { models } = require('../dal/database');
+const { models, connectDb } = require('../dal/database');
 const { StatusCode } = require('../shared/constants');
+
 
 /**
  * Helper method to insert a Product into the collection
  */
 exports.insertProduct = function(body, barcode, res) {
+
   let newProduct = new models.Product ({
     barcode: barcode || body.barcode,
     name: body.product_name,
     category: body.category.split('>').map(Function.prototype.call, String.prototype.trim),
     manufacturer: body.manufacturer || body.brand,
-    ESG: "0"
+    ESG: body.ESG
   });
 
   // save new product to MongoDB
@@ -22,5 +24,32 @@ exports.insertProduct = function(body, barcode, res) {
     // else return new product
     console.log(`stored ${data} in mongodb`);
     return res.status(StatusCode.CREATED).send(newProduct);
+  });
+}
+
+exports.getSimilarCategory = function(category, res) {
+  connectDb().then(async () => {
+    try {
+      let docs = await models.Product.aggregate([
+        {$match: {
+          'category': category
+        }},
+        {$group: {
+          _id: '$manufacturer',
+          doc: { $first: '$$ROOT' }
+        }}
+      ]);
+      if(docs) {
+        console.log(docs);
+        return res.status(StatusCode.OK).send({docs});
+      }
+    } catch(err) {
+      console.error(err);
+      return res.status(StatusCode.BAD_REQUEST).send(err);
+    }
+
+  }).catch((err) => {
+    console.error(err);
+    return res.status(StatusCode.INTERNAL_SERVER_ERROR).send(err);
   });
 }

@@ -3,7 +3,7 @@ const bc = require('barcodelookup');
 const { models, connectDb } = require('../dal/database');
 const { StatusCode } = require('../shared/constants');
 
-const { insertProduct } = require('../utils/controller');
+const { insertProduct, getSimilarCategory } = require('../utils/controller');
 
 /**
  * Simple ping endpoint.
@@ -22,6 +22,36 @@ let ping = (req, res) => {
 let welcome = (req, res) => {
     res.status(StatusCode.EASTER_EGG).send('Welcome to the Greenmap-API!');
 };
+
+
+let getTopManufacturers = async(req, res) => {
+    connectDb().then(async () => {
+        if(!req.params.id) {
+            return res.status(StatusCode.PRECONDITION_FAILED).send(null);
+        }      
+        let barcode = req.params.id;
+        try {
+            let doc = await models.Product.findOne({ barcode });
+            if(doc) {
+                console.log(`found ${doc.barcode} in mongodb`);
+                if(!doc.category || doc.category == null) {
+                    console.log(`category not found for ${doc.name}`)
+                    return res.status(StatusCode.PRECONDITION_FAILED).send();
+                }
+
+                let category = doc.category[doc.category.length - 1];
+                getSimilarCategory(category, res);
+            }
+        } catch(err) {
+            console.error(err);
+            return res.status(StatusCode.BAD_REQUEST).send(err);
+        }
+    }).catch((err) => {
+        console.error(err);
+        return res.status(StatusCode.INTERNAL_SERVER_ERROR).send(err);
+    });
+};
+
 
 /**
  * Gets product from DAL - if not found it is retrieved from Barcodelookup and then stored in MongoDB.
@@ -127,5 +157,6 @@ module.exports =  {
     welcome: welcome,
     getProduct: getProduct,
     addProductByValue: addProductByValue,
-    addProductByLookup: addProductByLookup
+    addProductByLookup: addProductByLookup,
+    getTopManufacturers: getTopManufacturers
 };
