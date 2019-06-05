@@ -36,10 +36,14 @@ exports.getSimilarCategory = function(category, res) {
         }},
         {$group: {
           _id: '$manufacturer',
-          doc: { $first: '$$ROOT' }
+          manufacturer: { "$first" : "$manufacturer"},
+          ESG: { "$first": "$ESG" }
         }},
         { $sort: { "doc.ESG": -1 } },
-        { $limit: 5 }
+        { $limit: 5 },
+        { $project : {
+          _id : 0
+        }}
       ]);
       if(docs) {
         console.log(docs);
