@@ -32,14 +32,15 @@ exports.getSimilarCategory = function(category, res) {
     try {
       let docs = await models.Product.aggregate([
         {$match: {
-          'category': category
+          'category': category,
+          "ESG":{$ne:null}
         }},
         {$group: {
           _id: '$manufacturer',
           manufacturer: { "$first" : "$manufacturer"},
           ESG: { "$first": "$ESG" }
         }},
-        { $sort: { "doc.ESG": -1 } },
+        { $sort: { "ESG": -1 } },
         { $limit: 5 },
         { $project : {
           _id : 0
