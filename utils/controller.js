@@ -50,6 +50,10 @@ exports.getSimilarCategory = function(category, res) {
         console.log(docs);
         return res.status(StatusCode.OK).send({docs});
       }
+
+      if(!docs) {
+        return res.status(StatusCode.BAD_REQUEST).send();
+      }
     } catch(err) {
       console.error(err);
       return res.status(StatusCode.BAD_REQUEST).send(err);

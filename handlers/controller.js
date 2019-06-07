@@ -42,6 +42,11 @@ let getTopManufacturers = async(req, res) => {
                 let category = doc.category[doc.category.length - 1];
                 getSimilarCategory(category, res);
             }
+
+            if(!doc) {
+                console.log(`barcode ${barcode} not found in the database`);
+                return res.status(StatusCode.BAD_REQUEST).send();
+            }
         } catch(err) {
             console.error(err);
             return res.status(StatusCode.BAD_REQUEST).send(err);
