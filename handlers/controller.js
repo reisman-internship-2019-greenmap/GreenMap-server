@@ -3,7 +3,7 @@ const bc = require('barcodelookup');
 const { models, connectDb } = require('../dal/database');
 const { StatusCode } = require('../shared/constants');
 
-const { insertProduct, getSimilarCategory } = require('../utils/controller');
+const { insertProduct } = require('../utils/controller');
 
 /**
  * Simple ping endpoint.
@@ -22,41 +22,6 @@ let ping = (req, res) => {
 let welcome = (req, res) => {
     res.status(StatusCode.EASTER_EGG).send('Welcome to the Greenmap-API!');
 };
-
-
-let getTopManufacturers = async(req, res) => {
-    connectDb().then(async () => {
-        if(!req.params.id) {
-            return res.status(StatusCode.PRECONDITION_FAILED).send(null);
-        }      
-        let barcode = req.params.id;
-        try {
-            let doc = await models.Product.findOne({ barcode });
-            if(doc) {
-                console.log(`found ${doc.barcode} in mongodb`);
-                if(!doc.category || doc.category == null) {
-                    console.log(`category not found for ${doc.name}`)
-                    return res.status(StatusCode.PRECONDITION_FAILED).send();
-                }
-
-                let category = doc.category[doc.category.length - 1];
-                getSimilarCategory(category, res);
-            }
-
-            if(!doc) {
-                console.log(`barcode ${barcode} not found in the database`);
-                return res.status(StatusCode.BAD_REQUEST).send();
-            }
-        } catch(err) {
-            console.error(err);
-            return res.status(StatusCode.BAD_REQUEST).send(err);
-        }
-    }).catch((err) => {
-        console.error(err);
-        return res.status(StatusCode.INTERNAL_SERVER_ERROR).send(err);
-    });
-};
-
 
 /**
  * Gets product from DAL - if not found it is retrieved from Barcodelookup and then stored in MongoDB.
@@ -154,6 +119,68 @@ let addProductByLookup = async(req, res) => {
             return res.status(bclRes.statusCode).send({ data: bclRes.data });
         }
         insertProduct(bclRes.data, barcode, res);
+    });
+};
+
+
+/**
+ * Returns the top five manufacturers of the same category of product
+ * @param req request 
+ * @param res  response
+ */
+let getTopManufacturers = async(req, res) => {
+    connectDb().then(async () => {
+        if(!req.params.id) {
+            return res.status(StatusCode.PRECONDITION_FAILED).send(null);
+        }      
+        let barcode = req.params.id;
+        try {
+            let doc = await models.Product.findOne({ barcode });
+            if(doc) {
+                console.log(`found ${doc.barcode} in mongodb`);
+                if(!doc.category) {
+                    console.error(`category not found for ${doc.name}`)
+                    return res.status(StatusCode.PRECONDITION_FAILED).send();
+                }
+
+                let category = doc.category[doc.category.length - 1];
+
+                // Query to return similary category of Product
+                try {
+                    let docs = await models.Product.aggregate([
+                        {$match: {
+                        'category': category,
+                        "ESG":{$ne:null}
+                        }},
+                        {$group: {
+                        _id: '$manufacturer',
+                        manufacturer: { "$first" : "$manufacturer"},
+                        ESG: { "$first": "$ESG" }
+                        }},
+                        { $sort: { "ESG": -1 } },
+                        { $limit: 5 },
+                        { $project : {
+                        _id : 0
+                        }}
+                    ]);
+                    console.log(docs);
+                    return res.status(StatusCode.OK).send({docs});
+                } catch(err) {
+                  console.error(err);
+                  return res.status(StatusCode.BAD_REQUEST).send(err);
+                }
+            }
+
+            console.error(`barcode ${barcode} not found in the mongodb`);
+            return res.status(StatusCode.BAD_REQUEST).send();
+            
+        } catch(err) {
+            console.error(err);
+            return res.status(StatusCode.BAD_REQUEST).send(err);
+        }
+    }).catch((err) => {
+        console.error(err);
+        return res.status(StatusCode.INTERNAL_SERVER_ERROR).send(err);
     });
 };
 
