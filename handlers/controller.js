@@ -131,7 +131,7 @@ let addProductByLookup = async(req, res) => {
 let getTopManufacturers = async(req, res) => {
     connectDb().then(async () => {
         if(!req.params.id) {
-            return res.status(StatusCode.PRECONDITION_FAILED).send(null);
+            return res.status(StatusCode.PRECONDITION_FAILED).send();
         }      
         let barcode = req.params.id;
         try {
@@ -140,7 +140,7 @@ let getTopManufacturers = async(req, res) => {
                 console.log(`found ${doc.barcode} in mongodb`);
                 if(!doc.category) {
                     console.error(`category not found for ${doc.name}`)
-                    return res.status(StatusCode.PRECONDITION_FAILED).send();
+                    return res.status(StatusCode.NOT_FOUND).send();
                 }
 
                 let category = doc.category[doc.category.length - 1];
@@ -172,7 +172,7 @@ let getTopManufacturers = async(req, res) => {
             }
 
             console.error(`barcode ${barcode} not found in the mongodb`);
-            return res.status(StatusCode.BAD_REQUEST).send();
+            return res.status(StatusCode.NOT_FOUND).send();
             
         } catch(err) {
             console.error(err);
