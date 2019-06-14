@@ -1,5 +1,6 @@
 'use strict';
 const controller = require('../handlers/controller');
+const middleware = require('../middleware/api-key-auth');
 
 /**
  * Exports app routes.
