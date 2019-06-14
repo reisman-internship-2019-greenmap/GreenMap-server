@@ -122,10 +122,73 @@ let addProductByLookup = async(req, res) => {
     });
 };
 
+
+/**
+ * Returns the top five manufacturers of the same category of product
+ * @param req request 
+ * @param res  response
+ */
+let getTopManufacturers = async(req, res) => {
+    connectDb().then(async () => {
+        if(!req.params.id) {
+            return res.status(StatusCode.PRECONDITION_FAILED).send();
+        }      
+        let barcode = req.params.id;
+        try {
+            let doc = await models.Product.findOne({ barcode });
+            if(doc) {
+                console.log(`found ${doc.barcode} in mongodb`);
+                if(!doc.category) {
+                    console.error(`category not found for ${doc.name}`)
+                    return res.status(StatusCode.NOT_FOUND).send();
+                }
+
+                let category = doc.category[doc.category.length - 1];
+
+                // Query to return similary category of Product
+                try {
+                    let docs = await models.Product.aggregate([
+                        {$match: {
+                        'category': category,
+                        "ESG":{$ne:null}
+                        }},
+                        {$group: {
+                        _id: '$manufacturer',
+                        manufacturer: { "$first" : "$manufacturer"},
+                        ESG: { "$first": "$ESG" }
+                        }},
+                        { $sort: { "ESG": -1 } },
+                        { $limit: 5 },
+                        { $project : {
+                        _id : 0
+                        }}
+                    ]);
+                    console.log(docs);
+                    return res.status(StatusCode.OK).send({docs});
+                } catch(err) {
+                  console.error(err);
+                  return res.status(StatusCode.BAD_REQUEST).send(err);
+                }
+            }
+
+            console.error(`barcode ${barcode} not found in the mongodb`);
+            return res.status(StatusCode.NOT_FOUND).send();
+            
+        } catch(err) {
+            console.error(err);
+            return res.status(StatusCode.BAD_REQUEST).send(err);
+        }
+    }).catch((err) => {
+        console.error(err);
+        return res.status(StatusCode.INTERNAL_SERVER_ERROR).send(err);
+    });
+};
+
 module.exports =  {
     ping: ping,
     welcome: welcome,
     getProduct: getProduct,
     addProductByValue: addProductByValue,
-    addProductByLookup: addProductByLookup
+    addProductByLookup: addProductByLookup,
+    getTopManufacturers: getTopManufacturers
 };

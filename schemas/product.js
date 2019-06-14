@@ -18,7 +18,7 @@ let Product = mongoose.model("Product", {
     required: true
   },
   ESG: {
-    type: String
+    type: Number
   }
 });
 
