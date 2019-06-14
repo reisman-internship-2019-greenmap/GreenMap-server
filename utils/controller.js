@@ -8,11 +8,11 @@ const { StatusCode } = require('../shared/constants');
 exports.insertProduct = function(body, barcode, res) {
 
   let newProduct = new models.Product ({
-    barcode: barcode || body.barcode,
-    name: body.product_name,
-    category: body.category.split('>').map(Function.prototype.call, String.prototype.trim),
+    barcode: barcode,
+    name: body.name,
+    category: body.categories,
     manufacturer: body.manufacturer || body.brand,
-    ESG: body.ESG
+    ESG: null
   });
 
   // save new product to MongoDB
