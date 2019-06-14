@@ -1,14 +1,9 @@
 require('dotenv').config();
-const bc = require('barcodelookup');
 const { models, connectDb } = require('../dal/database');
 const { StatusCode } = require('../shared/constants');
 
-<<<<<<< Updated upstream
-const { insertProduct, getSimilarCategory } = require('../utils/controller');
-=======
 const { insertProduct } = require('../utils/controller');
 const { datafinitilookup } = require('../utils/datafiniti');
->>>>>>> Stashed changes
 
 /**
  * Simple ping endpoint.
