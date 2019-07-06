@@ -1,9 +1,9 @@
 require('dotenv').config();
-const bc = require('barcodelookup');
 const { models, connectDb } = require('../dal/database');
 const { StatusCode } = require('../shared/constants');
 
 const { insertProduct } = require('../utils/controller');
+const { datafinitilookup } = require('../utils/datafiniti');
 
 /**
  * Simple ping endpoint.
@@ -43,18 +43,23 @@ let getProduct = (req, res) => {
                 return res.status(StatusCode.OK).send({doc});
             }
 
-            // else query barcodelookup for product
-            let bclRes = await bc.lookup({key: process.env.BC_API_KEY, barcode: barcode});
-            if (bclRes.statusCode !== StatusCode.OK) {
-                console.error(`error looking up ${barcode} in barcodelookup`);
+            // else query datafiniti for product
+            let datafinitiRes = await datafinitilookup({api_key: process.env.API_TOKEN, barcode: barcode});
+            if(datafinitiRes.status != StatusCode.OK) {
+                console.error(`error looking up ${barcode} in datafiniti`);
                 return res.status(bclRes.statusCode).send({ data: bclRes.data });
             }
 
-            if(!bclRes.data.manufacturer && !bclRes.data.brand) {
-                console.error(`cannot find a manufacturer for ${barcode}`);
+            if(datafinitiRes.body.num_found == 0) {
+                console.error(`couldn't find ${barcode} in datafiniti`);
+                return res.status(StatusCode.NOT_FOUND).send({ data: datafinitiRes.body.records[0] });
             }
 
-            insertProduct(bclRes.data, barcode, res);
+            if(!('brand' in datafinitiRes.body.records[0]) && !('manufacturer' in datafinitiRes.body.records[0])) {
+                console.error(`couldn't find a manufacturer for ${barcode}`);
+            }
+
+            insertProduct(datafinitiRes.body.records[0], barcode, res);
 
         } catch(err) {
             console.error(err);
@@ -110,15 +115,23 @@ let addProductByLookup = async(req, res) => {
             console.error(`product ${req.body.barcode} already exists in database`);
             return res.status(StatusCode.CONFLICT).send({msg: `product ${req.body.barcode} already exists in database`});
         }
-        // else
-        // query barcodelookup for product
-        let bclRes = await bc.lookup({key: process.env.BC_API_KEY, barcode: barcode});
-        console.log(bclRes);
-        if(bclRes.statusCode !== StatusCode.OK) {
-            console.error(`error looking up ${barcode} in barcodelookup`);
+        // else query datafiniti for product
+        let datafinitiRes = await datafinitilookup({api_key: process.env.API_TOKEN, barcode: barcode});
+        if(datafinitiRes.status != StatusCode.OK) {
+            console.error(`error looking up ${barcode} in datafiniti`);
             return res.status(bclRes.statusCode).send({ data: bclRes.data });
         }
-        insertProduct(bclRes.data, barcode, res);
+
+        if(datafinitiRes.body.num_found == 0) {
+            console.error(`couldn't find ${barcode} in datafiniti`);
+            return res.status(StatusCode.NOT_FOUND).send({ data: datafinitiRes.body.records[0] });
+        }
+
+        if(!('brand' in datafinitiRes.body.records[0]) && !('manufacturer' in datafinitiRes.body.records[0])) {
+            console.error(`couldn't find a manufacturer for ${barcode}`);
+        }
+
+        insertProduct(datafinitiRes.body.records[0], barcode, res);
     });
 };
 
