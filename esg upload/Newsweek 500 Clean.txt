@@ -1,0 +1,2000 @@
+1
+Cisco Systems Inc
+Communications Equipment
+United States of America
+2
+Ecolab Inc
+Chemicals
+United States of America
+3
+Hasbro Inc
+Leisure Products
+United States of America
+4
+PG&E Corp
+Electric Utilities
+United States of America
+5
+Sealed Air Corp
+Containers & Packaging
+United States of America
+6
+Best Buy Co Inc
+Specialty Retail
+United States of America
+7
+Celgene Corp
+Biotechnology
+United States of America
+8
+Apple Inc
+Technology Hardware, Storage & Peripherals
+United States of America
+9
+CMS Energy Corp
+Multi-Utilities
+United States of America
+10
+Johnson & Johnson
+Pharmaceuticals
+United States of America
+11
+Applied Materials Inc
+Semiconductors & Semiconductor Equipment
+United States of America
+12
+Exelon Corp
+Electric Utilities
+United States of America
+13
+Ball Corp
+Containers & Packaging
+United States of America
+14
+HP Inc
+Technology Hardware, Storage & Peripherals
+United States of America
+15
+Biogen Inc
+Biotechnology
+United States of America
+16
+Boston Scientific Corp
+Health Care Equipment & Supplies
+United States of America
+17
+Microsoft Corp
+Software
+United States of America
+18
+Humana Inc
+Health Care Providers & Services
+United States of America
+19
+Merck & Co Inc
+Pharmaceuticals
+United States of America
+20
+Eversource Energy
+Electric Utilities
+United States of America
+21
+Hershey Co
+Food Products
+United States of America
+22
+Boeing Co
+Aerospace & Defense
+United States of America
+23
+Raytheon Co
+Aerospace & Defense
+United States of America
+24
+NVIDIA Corp
+Semiconductors & Semiconductor Equipment
+United States of America
+25
+Cummins Inc
+Machinery
+United States of America
+26
+Praxair Inc
+Chemicals
+United States of America
+27
+Bristol-Myers Squibb Co
+Pharmaceuticals
+United States of America
+28
+Estee Lauder Companies Inc
+Personal Products
+United States of America
+29
+Rockwell Automation Inc
+Electrical Equipment
+United States of America
+30
+MetLife Inc
+Insurance
+United States of America
+31
+PPG Industries Inc
+Chemicals
+United States of America
+32
+Oracle Corp
+Software
+United States of America
+33
+Aflac Inc
+Insurance
+United States of America
+34
+General Mills Inc
+Food Products
+United States of America
+35
+Nordstrom Inc
+Multiline Retail
+United States of America
+36
+Mondelez International Inc
+Food Products
+United States of America
+37
+Starbucks Corp
+Hotels, Restaurants & Leisure
+United States of America
+38
+Leidos Holdings Inc
+IT Services
+United States of America
+39
+CVS Health Corp
+Food & Staples Retailing
+United States of America
+40
+Colgate-Palmolive Co
+Household Products
+United States of America
+41
+Clorox Co
+Household Products
+United States of America
+42
+Domtar Corp
+Paper & Forest Products
+United States of America
+43
+CSX Corp
+Road & Rail
+United States of America
+44
+UnitedHealth Group Inc
+Health Care Providers & Services
+United States of America
+45
+Qualcomm Inc
+Semiconductors & Semiconductor Equipment
+United States of America
+46
+Nike Inc
+Textiles, Apparel & Luxury Goods
+United States of America
+47
+General Electric Co
+Industrial Conglomerates
+United States of America
+48
+Consolidated Edison Inc
+Multi-Utilities
+United States of America
+49
+Ford Motor Co
+Automobiles
+United States of America
+50
+Whirlpool Corp
+Household Durables
+United States of America
+51
+Avangrid Inc
+Electric Utilities
+United States of America
+52
+Cognizant Technology Solutions Corp
+IT Services
+United States of America
+53
+Campbell Soup Co
+Food Products
+United States of America
+54
+Prudential Financial Inc
+Insurance
+United States of America
+55
+Harley-Davidson Inc
+Automobiles
+United States of America
+56
+Archer Daniels Midland Co
+Food Products
+United States of America
+57
+Quest Diagnostics Inc
+Health Care Providers & Services
+United States of America
+58
+Las Vegas Sands Corp
+Hotels, Restaurants & Leisure
+United States of America
+59
+United Continental Holdings Inc
+Airlines
+United States of America
+60
+Citigroup Inc
+Banks
+United States of America
+61
+Union Pacific Corp
+Road & Rail
+United States of America
+62
+Host Hotels & Resorts Inc
+Equity Real Estate Investment Trusts (REITs)
+United States of America
+63
+Fluor Corp
+Construction & Engineering
+United States of America
+64
+Voya Financial Inc
+Diversified Financial Services
+United States of America
+65
+3M Co
+Industrial Conglomerates
+United States of America
+66
+Monsanto Co
+Chemicals
+United States of America
+67
+Sprint Corp
+Wireless Telecommunication Services
+United States of America
+68
+Bunge Ltd
+Food Products
+United States of America
+69
+Schlumberger NV
+Energy Equipment & Services
+United States of America
+70
+Dow Chemical Co
+Chemicals
+United States of America
+71
+State Street Corp
+Capital Markets
+United States of America
+72
+Duke Energy Corp
+Electric Utilities
+United States of America
+73
+Visa Inc
+IT Services
+United States of America
+74
+International Business Machines Corp
+IT Services
+United States of America
+75
+Masco Corp
+Building Products
+United States of America
+76
+MGM Resorts International
+Hotels, Restaurants & Leisure
+United States of America
+77
+Delta Air Lines Inc
+Airlines
+United States of America
+78
+Royal Caribbean Cruises Ltd
+Hotels, Restaurants & Leisure
+United States of America
+79
+Kellogg Co
+Food Products
+United States of America
+80
+Wyndham Worldwide Corp
+Hotels, Restaurants & Leisure
+United States of America
+81
+Goldman Sachs Group Inc
+Capital Markets
+United States of America
+82
+Owens Corning
+Building Products
+United States of America
+83
+Eli Lilly and Co
+Pharmaceuticals
+United States of America
+84
+Intel Corp
+Semiconductors & Semiconductor Equipment
+United States of America
+85
+Altria Group Inc
+Tobacco
+United States of America
+86
+Sempra Energy
+Multi-Utilities
+United States of America
+87
+United Parcel Service Inc
+Air Freight & Logistics
+United States of America
+88
+American Express Co
+Consumer Finance
+United States of America
+89
+PepsiCo Inc
+Beverages
+United States of America
+90
+Air Products and Chemicals Inc
+Chemicals
+United States of America
+91
+United Technologies Corp
+Aerospace & Defense
+United States of America
+92
+Lockheed Martin Corp
+Aerospace & Defense
+United States of America
+93
+McDonald's Corp
+Hotels, Restaurants & Leisure
+United States of America
+94
+eBay Inc
+Internet Software & Services
+United States of America
+95
+Exxon Mobil Corp
+Oil, Gas & Consumable Fuels
+United States of America
+96
+Adobe Systems Inc
+Software
+United States of America
+97
+Eastman Chemical Co
+Chemicals
+United States of America
+98
+Cigna Corp
+Health Care Providers & Services
+United States of America
+99
+ManpowerGroup Inc
+Professional Services
+United States of America
+100
+Entergy Corp
+Electric Utilities
+United States of America
+101
+Southwest Airlines Co
+Airlines
+United States of America
+102
+Freeport-McMoRan Inc
+Metals & Mining
+United States of America
+103
+Philip Morris International Inc
+Tobacco
+United States of America
+104
+Anthem Inc
+Health Care Providers & Services
+United States of America
+105
+Home Depot Inc
+Specialty Retail
+United States of America
+106
+Xerox Corp
+IT Services
+United States of America
+107
+Unum Group
+Insurance
+United States of America
+108
+Simon Property Group Inc
+Equity Real Estate Investment Trusts (REITs)
+United States of America
+109
+Xcel Energy Inc
+Electric Utilities
+United States of America
+110
+J M Smucker Co
+Food Products
+United States of America
+111
+Norfolk Southern Corp
+Road & Rail
+United States of America
+112
+AES Corp
+Independent Power and Renewable Electricity Producers
+United States of America
+113
+NextEra Energy Inc
+Electric Utilities
+United States of America
+114
+Wal-Mart Stores Inc
+Food & Staples Retailing
+United States of America
+115
+Waste Management Inc
+Commercial Services & Supplies
+United States of America
+116
+Jabil Inc
+Electronic Equipment, Instruments & Components
+United States of America
+117
+Republic Services Inc
+Commercial Services & Supplies
+United States of America
+118
+Weyerhaeuser Co
+Equity Real Estate Investment Trusts (REITs)
+United States of America
+119
+Bank of New York Mellon Corp
+Capital Markets
+United States of America
+120
+Abbott Laboratories
+Health Care Equipment & Supplies
+United States of America
+121
+LyondellBasell Industries NV
+Chemicals
+United States of America
+122
+ConocoPhillips
+Oil, Gas & Consumable Fuels
+United States of America
+123
+FedEx Corp
+Air Freight & Logistics
+United States of America
+124
+CBRE Group Inc
+Real Estate Management & Development
+United States of America
+125
+Kimberly-Clark Corp
+Household Products
+United States of America
+126
+Amgen Inc
+Biotechnology
+United States of America
+127
+Gap Inc
+Specialty Retail
+United States of America
+128
+Becton Dickinson and Co
+Health Care Equipment & Supplies
+United States of America
+129
+Pfizer Inc
+Pharmaceuticals
+United States of America
+130
+Aetna Inc
+Health Care Providers & Services
+United States of America
+131
+Hewlett Packard Enterprise Co
+Technology Hardware, Storage & Peripherals
+United States of America
+132
+Cardinal Health Inc
+Health Care Providers & Services
+United States of America
+133
+Occidental Petroleum Corp
+Oil, Gas & Consumable Fuels
+United States of America
+134
+Viacom Inc
+Media
+United States of America
+135
+PPL Corp
+Electric Utilities
+United States of America
+136
+PVH Corp
+Textiles, Apparel & Luxury Goods
+United States of America
+137
+Hormel Foods Corp
+Food Products
+United States of America
+138
+Chevron Corp
+Oil, Gas & Consumable Fuels
+United States of America
+139
+Intuit Inc
+Software
+United States of America
+140
+Marriott International Inc
+Hotels, Restaurants & Leisure
+United States of America
+141
+Omnicom Group Inc
+Media
+United States of America
+142
+International Paper Co
+Containers & Packaging
+United States of America
+143
+Morgan Stanley
+Capital Markets
+United States of America
+144
+Target Corp
+Multiline Retail
+United States of America
+145
+Parker-Hannifin Corp
+Machinery
+United States of America
+146
+AT&T Inc
+Diversified Telecommunication Services
+United States of America
+147
+JPMorgan Chase & Co
+Banks
+United States of America
+148
+Thermo Fisher Scientific Inc
+Life Sciences Tools & Services
+United States of America
+149
+NRG Energy Inc
+Independent Power and Renewable Electricity Producers
+United States of America
+150
+Lincoln National Corp
+Insurance
+United States of America
+151
+Alcoa Corp
+Metals & Mining
+United States of America
+152
+AECOM
+Construction & Engineering
+United States of America
+153
+Autoliv Inc
+Auto Components
+United States of America
+154
+WEC Energy Group Inc
+Multi-Utilities
+United States of America
+155
+Alliance Data Systems Corp
+IT Services
+United States of America
+156
+Newmont Mining Corp
+Metals & Mining
+United States of America
+157
+DTE Energy Co
+Multi-Utilities
+United States of America
+158
+Procter & Gamble Co
+Household Products
+United States of America
+159
+Hartford Financial Services Group Inc
+Insurance
+United States of America
+160
+Kohls Corp
+Multiline Retail
+United States of America
+161
+Motorola Solutions Inc
+Communications Equipment
+United States of America
+162
+Yum! Brands Inc
+Hotels, Restaurants & Leisure
+United States of America
+163
+Quanta Services Inc
+Construction & Engineering
+United States of America
+164
+Devon Energy Corp
+Oil, Gas & Consumable Fuels
+United States of America
+165
+General Motors Co
+Automobiles
+United States of America
+166
+Textron Inc
+Aerospace & Defense
+United States of America
+167
+Rockwell Collins Inc
+Aerospace & Defense
+United States of America
+168
+Avery Dennison Corp
+Containers & Packaging
+United States of America
+169
+Edison International
+Electric Utilities
+United States of America
+170
+Carnival Corp
+Hotels, Restaurants & Leisure
+United States of America
+171
+Constellation Brands Inc
+Beverages
+United States of America
+172
+Valero Energy Corp
+Oil, Gas & Consumable Fuels
+United States of America
+173
+W W Grainger Inc
+Trading Companies & Distributors
+United States of America
+174
+LKQ Corp
+Distributors
+United States of America
+175
+Anadarko Petroleum Corp
+Oil, Gas & Consumable Fuels
+United States of America
+176
+Northrop Grumman Corp
+Aerospace & Defense
+United States of America
+177
+Avon Products Inc
+Personal Products
+United States of America
+178
+Wesco International Inc
+Trading Companies & Distributors
+United States of America
+179
+Dover Corp
+Machinery
+United States of America
+180
+Texas Instruments Inc
+Semiconductors & Semiconductor Equipment
+United States of America
+181
+VMware Inc
+Software
+United States of America
+182
+Wells Fargo & Co
+Banks
+United States of America
+183
+Baxter International Inc
+Health Care Equipment & Supplies
+United States of America
+184
+Principal Financial Group Inc
+Insurance
+United States of America
+185
+Alaska Air Group Inc
+Airlines
+United States of America
+186
+Marsh & McLennan Companies Inc
+Insurance
+United States of America
+187
+Apache Corp
+Oil, Gas & Consumable Fuels
+United States of America
+188
+Bank of America Corp
+Banks
+United States of America
+189
+Twenty-First Century Fox Inc
+Media
+United States of America
+190
+S&P Global Inc
+Capital Markets
+United States of America
+191
+Hertz Global Holdings Inc
+Road & Rail
+United States of America
+192
+Allstate Corp
+Insurance
+United States of America
+193
+Honeywell International Inc
+Industrial Conglomerates
+United States of America
+194
+HanesBrands Inc
+Textiles, Apparel & Luxury Goods
+United States of America
+195
+Staples Inc
+Specialty Retail
+United States of America
+196
+Ameren Corp
+Multi-Utilities
+United States of America
+197
+Dean Foods Co
+Food Products
+United States of America
+198
+Western Union Co
+IT Services
+United States of America
+199
+Halliburton Co
+Energy Equipment & Services
+United States of America
+200
+TJX Companies Inc
+Specialty Retail
+United States of America
+201
+Mosaic Co
+Chemicals
+United States of America
+202
+Owens-Illinois Inc
+Containers & Packaging
+United States of America
+203
+Marathon Petroleum Corp
+Oil, Gas & Consumable Fuels
+United States of America
+204
+Kroger Co
+Food & Staples Retailing
+United States of America
+205
+American Airlines Group Inc
+Airlines
+United States of America
+206
+AbbVie Inc
+Biotechnology
+United States of America
+207
+PNC Financial Services Group Inc
+Banks
+United States of America
+208
+ABM Industries Inc
+Commercial Services & Supplies
+United States of America
+209
+Conagra Brands Inc
+Food Products
+United States of America
+210
+Jones Lang LaSalle Inc
+Real Estate Management & Development
+United States of America
+211
+Oshkosh Corp
+Machinery
+United States of America
+212
+Coca-Cola Co
+Beverages
+United States of America
+213
+Southern Co
+Electric Utilities
+United States of America
+214
+Deere & Co
+Machinery
+United States of America
+215
+Dominion Energy Inc
+Multi-Utilities
+United States of America
+216
+Southern Copper Corp
+Metals & Mining
+United States of America
+217
+American Electric Power Company Inc
+Electric Utilities
+United States of America
+218
+Cintas Corp
+Commercial Services & Supplies
+United States of America
+219
+Walt Disney Co
+Media
+United States of America
+220
+Facebook Inc
+Internet Software & Services
+United States of America
+221
+McKesson Corp
+Health Care Providers & Services
+United States of America
+222
+Newell Brands Inc
+Household Durables
+United States of America
+223
+Tyson Foods Inc
+Food Products
+United States of America
+224
+Verizon Communications Inc
+Diversified Telecommunication Services
+United States of America
+225
+Dr Pepper Snapple Group Inc
+Beverages
+United States of America
+226
+Level 3 Communications Inc
+Diversified Telecommunication Services
+United States of America
+227
+VF Corp
+Textiles, Apparel & Luxury Goods
+United States of America
+228
+CenturyLink Inc
+Diversified Telecommunication Services
+United States of America
+229
+CenterPoint Energy Inc
+Multi-Utilities
+United States of America
+230
+Arconic Inc
+Aerospace & Defense
+United States of America
+231
+Macy's Inc
+Multiline Retail
+United States of America
+232
+U.S. Bancorp
+Banks
+United States of America
+233
+Chesapeake Energy Corp
+Oil, Gas & Consumable Fuels
+United States of America
+234
+Illinois Tool Works Inc
+Machinery
+United States of America
+235
+Berry Global Group Inc
+Containers & Packaging
+United States of America
+236
+Ryder System Inc
+Road & Rail
+United States of America
+237
+Corning Inc
+Electronic Equipment, Instruments & Components
+United States of America
+238
+Public Service Enterprise Group Inc
+Multi-Utilities
+United States of America
+239
+Spectrum Group International Inc
+Diversified Consumer Services
+United States of America
+240
+Tesla Inc
+Automobiles
+United States of America
+241
+Sherwin-Williams Co
+Chemicals
+United States of America
+242
+DaVita Inc
+Health Care Providers & Services
+United States of America
+243
+M&T Bank Corp
+Banks
+United States of America
+244
+Fifth Third Bancorp
+Banks
+United States of America
+245
+Travelers Companies Inc
+Insurance
+United States of America
+246
+Fortive Corp
+Machinery
+United States of America
+247
+Walgreens Boots Alliance Inc
+Food & Staples Retailing
+United States of America
+248
+Arris International PLC
+Communications Equipment
+United States of America
+249
+Nielsen Holdings PLC
+Professional Services
+United States of America
+250
+HollyFrontier Corp
+Oil, Gas & Consumable Fuels
+United States of America
+251
+Navistar International Corp
+Machinery
+United States of America
+252
+FirstEnergy Corp
+Electric Utilities
+United States of America
+253
+Automatic Data Processing Inc
+IT Services
+United States of America
+254
+Aramark
+Hotels, Restaurants & Leisure
+United States of America
+255
+Univar Inc
+Trading Companies & Distributors
+United States of America
+256
+Costco Wholesale Corp
+Food & Staples Retailing
+United States of America
+257
+Salesforce.Com Inc
+Software
+United States of America
+258
+Emerson Electric Co
+Electrical Equipment
+United States of America
+259
+Steel Dynamics Inc
+Metals & Mining
+United States of America
+260
+Northern Trust Corp
+Capital Markets
+United States of America
+261
+BorgWarner Inc
+Auto Components
+United States of America
+262
+E I du Pont de Nemours and Co
+Chemicals
+United States of America
+263
+L Brands Inc
+Specialty Retail
+United States of America
+264
+Stanley Black & Decker Inc
+Machinery
+United States of America
+265
+Mohawk Industries Inc
+Household Durables
+United States of America
+266
+Markel Corp
+Insurance
+United States of America
+267
+A-Mark Precious Metals Inc
+Diversified Financial Services
+United States of America
+268
+J B Hunt Transport Services Inc
+Road & Rail
+United States of America
+269
+Kinder Morgan Inc
+Oil, Gas & Consumable Fuels
+United States of America
+270
+Leucadia National Corp
+Diversified Financial Services
+United States of America
+271
+Mattel Inc
+Leisure Products
+United States of America
+272
+PACCAR Inc
+Machinery
+United States of America
+273
+Stryker Corp
+Health Care Equipment & Supplies
+United States of America
+274
+Time Warner Inc
+Media
+United States of America
+275
+Alphabet Inc
+Internet Software & Services
+United States of America
+276
+AK Steel Holding Corp
+Metals & Mining
+United States of America
+277
+Booz Allen Hamilton Holding Corp
+IT Services
+United States of America
+278
+DXC Technology Co
+IT Services
+United States of America
+279
+Caterpillar Inc
+Machinery
+United States of America
+280
+Loews Corp
+Insurance
+United States of America
+281
+ONEOK Inc
+Oil, Gas & Consumable Fuels
+United States of America
+282
+Huntsman Corp
+Chemicals
+United States of America
+283
+American International Group Inc
+Insurance
+United States of America
+284
+Arthur J Gallagher & Co
+Insurance
+United States of America
+285
+Micron Technology Inc
+Semiconductors & Semiconductor Equipment
+United States of America
+286
+EOG Resources Inc
+Oil, Gas & Consumable Fuels
+United States of America
+287
+Conduent Inc
+IT Services
+United States of America
+288
+Crown Holdings Inc
+Containers & Packaging
+United States of America
+289
+Coty Inc
+Personal Products
+United States of America
+290
+Capital One Financial Corp
+Consumer Finance
+United States of America
+291
+Spirit AeroSystems Holdings Inc
+Aerospace & Defense
+United States of America
+292
+Williams Companies Inc
+Oil, Gas & Consumable Fuels
+United States of America
+293
+CBS Corp
+Media
+United States of America
+294
+Charles Schwab Corp
+Capital Markets
+United States of America
+295
+United Natural Foods Inc
+Food & Staples Retailing
+United States of America
+296
+BlackRock Inc
+Capital Markets
+United States of America
+297
+Phillips 66
+Oil, Gas & Consumable Fuels
+United States of America
+298
+D.R. Horton Inc
+Household Durables
+United States of America
+299
+Danaher Corp
+Health Care Equipment & Supplies
+United States of America
+300
+Express Scripts Holding Co
+Health Care Providers & Services
+United States of America
+301
+Franklin Resources Inc
+Capital Markets
+United States of America
+302
+Gilead Sciences Inc
+Biotechnology
+United States of America
+303
+Liberty Interactive Corp
+Internet & Direct Marketing Retail
+United States of America
+304
+National Oilwell Varco Inc
+Energy Equipment & Services
+United States of America
+305
+Vistra Energy Corp
+Independent Power and Renewable Electricity Producers
+United States of America
+306
+Westlake Chemical Corp
+Chemicals
+United States of America
+307
+Zimmer Biomet Holdings Inc
+Health Care Equipment & Supplies
+United States of America
+308
+Progressive Corp
+Insurance
+United States of America
+309
+United Rentals Inc
+Trading Companies & Distributors
+United States of America
+310
+Nucor Corp
+Metals & Mining
+United States of America
+311
+United States Steel Corp
+Metals & Mining
+United States of America
+312
+Darden Restaurants Inc
+Hotels, Restaurants & Leisure
+United States of America
+313
+Hilton Worldwide Holdings Inc
+Hotels, Restaurants & Leisure
+United States of America
+314
+Yum China Holdings Inc
+Hotels, Restaurants & Leisure
+United States of America
+315
+Molina Healthcare Inc
+Health Care Providers & Services
+United States of America
+316
+AutoNation Inc
+Specialty Retail
+United States of America
+317
+Post Holdings Inc
+Food Products
+United States of America
+318
+Sysco Corp
+Food & Staples Retailing
+United States of America
+319
+O'Reilly Automotive Inc
+Specialty Retail
+United States of America
+320
+Goodyear Tire & Rubber Co
+Auto Components
+United States of America
+321
+Lam Research Corp
+Semiconductors & Semiconductor Equipment
+United States of America
+322
+Henry Schein Inc
+Health Care Providers & Services
+United States of America
+323
+EMCOR Group Inc
+Construction & Engineering
+United States of America
+324
+Jacobs Engineering Group Inc
+Construction & Engineering
+United States of America
+325
+Western Digital Corp
+Technology Hardware, Storage & Peripherals
+United States of America
+326
+Interpublic Group of Companies Inc
+Media
+United States of America
+327
+Advance Auto Parts Inc
+Specialty Retail
+United States of America
+328
+Asbury Automotive Group Inc
+Specialty Retail
+United States of America
+329
+Ascena Retail Group Inc
+Specialty Retail
+United States of America
+330
+Autozone Inc
+Specialty Retail
+United States of America
+331
+Bed Bath & Beyond Inc
+Specialty Retail
+United States of America
+332
+Burlington Stores Inc
+Specialty Retail
+United States of America
+333
+Foot Locker Inc
+Specialty Retail
+United States of America
+334
+GameStop Corp
+Specialty Retail
+United States of America
+335
+Group 1 Automotive Inc
+Specialty Retail
+United States of America
+336
+Lithia Motors Inc
+Specialty Retail
+United States of America
+337
+Michaels Companies Inc
+Specialty Retail
+United States of America
+338
+Murphy Usa Inc
+Specialty Retail
+United States of America
+339
+Penske Automotive Group Inc
+Specialty Retail
+United States of America
+340
+Ross Stores Inc
+Specialty Retail
+United States of America
+341
+Sonic Automotive Inc
+Specialty Retail
+United States of America
+342
+TravelCenters of America LLC
+Specialty Retail
+United States of America
+343
+Williams-Sonoma Inc
+Specialty Retail
+United States of America
+344
+Telephone and Data Systems Inc
+Wireless Telecommunication Services
+United States of America
+345
+Ralph Lauren Corp
+Textiles, Apparel & Luxury Goods
+United States of America
+346
+Tenneco Inc
+Auto Components
+United States of America
+347
+Dana Inc
+Auto Components
+United States of America
+348
+Federal National Mortgage Association
+Thrifts & Mortgage Finance
+United States of America
+349
+BB&T Corp
+Banks
+United States of America
+350
+Genesis Healthcare Inc
+Health Care Providers & Services
+United States of America
+351
+Regions Financial Corp
+Banks
+United States of America
+352
+AmerisourceBergen Corp
+Health Care Providers & Services
+United States of America
+353
+C.H. Robinson Worldwide Inc
+Air Freight & Logistics
+United States of America
+354
+Celanese Corp
+Chemicals
+United States of America
+355
+Energy Transfer Equity LP
+Oil, Gas & Consumable Fuels
+United States of America
+356
+Enterprise Products Partners LP
+Oil, Gas & Consumable Fuels
+United States of America
+357
+Mastercard Inc
+IT Services
+United States of America
+358
+Netflix Inc
+Internet & Direct Marketing Retail
+United States of America
+359
+PBF Energy Inc
+Oil, Gas & Consumable Fuels
+United States of America
+360
+RR Donnelley & Sons Co
+Commercial Services & Supplies
+United States of America
+361
+UGI Corp
+Gas Utilities
+United States of America
+362
+Williams Partners LP
+Oil, Gas & Consumable Fuels
+United States of America
+363
+Pilgrims Pride Corp
+Food Products
+United States of America
+364
+Santander Holdings USA Inc
+Banks
+United States of America
+365
+SunTrust Banks Inc
+Banks
+United States of America
+366
+Reinsurance Group of America Inc
+Insurance
+United States of America
+367
+W. R. Berkley Corp
+Insurance
+United States of America
+368
+JetBlue Airways Corp
+Airlines
+United States of America
+369
+Calpine Corp
+Independent Power and Renewable Electricity Producers
+United States of America
+370
+Alleghany Corp
+Insurance
+United States of America
+371
+American Financial Group Inc
+Insurance
+United States of America
+372
+AmTrust Financial Services Inc
+Insurance
+United States of America
+373
+Assurant Inc
+Insurance
+United States of America
+374
+Cincinnati Financial Corp
+Insurance
+United States of America
+375
+CNA Financial Corp
+Insurance
+United States of America
+376
+Fidelity National Financial Inc
+Insurance
+United States of America
+377
+First American Financial Corp
+Insurance
+United States of America
+378
+Genworth Financial Inc
+Insurance
+United States of America
+379
+Old Republic International Corp
+Insurance
+United States of America
+380
+Kraft Heinz Co
+Food Products
+United States of America
+381
+TreeHouse Foods Inc
+Food Products
+United States of America
+382
+HRG Group Inc
+Household Products
+United States of America
+383
+Spectrum Brands Holdings Inc
+Household Products
+United States of America
+384
+PulteGroup Inc
+Household Durables
+United States of America
+385
+Caseys General Stores Inc
+Food & Staples Retailing
+United States of America
+386
+Performance Food Group Co
+Food & Staples Retailing
+United States of America
+387
+Publix Super Markets Inc
+Food & Staples Retailing
+United States of America
+388
+Rite Aid Corp
+Food & Staples Retailing
+United States of America
+389
+SpartanNash Co
+Food & Staples Retailing
+United States of America
+390
+Supervalu Inc
+Food & Staples Retailing
+United States of America
+391
+US Foods Holding Corp
+Food & Staples Retailing
+United States of America
+392
+Packaging Corp of America
+Containers & Packaging
+United States of America
+393
+Baker Hughes A GE Co
+Energy Equipment & Services
+United States of America
+394
+News Corp
+Media
+United States of America
+395
+Owens & Minor Inc
+Health Care Providers & Services
+United States of America
+396
+J C Penney Company Inc
+Multiline Retail
+United States of America
+397
+Avnet Inc
+Electronic Equipment, Instruments & Components
+United States of America
+398
+Whole Foods Market Inc
+Food & Staples Retailing
+United States of America
+399
+Office Depot Inc
+Specialty Retail
+United States of America
+400
+Charter Communications Inc
+Media
+United States of America
+401
+Federal Home Loan Mortgage Corp
+Thrifts & Mortgage Finance
+United States of America
+402
+MasTec Inc
+Construction & Engineering
+United States of America
+403
+Lowe's Companies Inc
+Specialty Retail
+United States of America
+404
+Activision Blizzard Inc
+Software
+United States of America
+405
+AGCO Corp
+Machinery
+United States of America
+406
+Ally Financial Inc
+Consumer Finance
+United States of America
+407
+Altaba Inc
+Internet Software & Services
+United States of America
+408
+Altice USA Inc
+Media
+United States of America
+409
+Amazon.com Inc
+Internet & Direct Marketing Retail
+United States of America
+410
+American Tower Corp
+Equity Real Estate Investment Trusts (REITs)
+United States of America
+411
+Ameriprise Financial Inc
+Capital Markets
+United States of America
+412
+Amphenol Corp
+Electronic Equipment, Instruments & Components
+United States of America
+413
+Andeavor
+Oil, Gas & Consumable Fuels
+United States of America
+414
+Anixter International Inc
+Electronic Equipment, Instruments & Components
+United States of America
+415
+Arrow Electronics Inc
+Electronic Equipment, Instruments & Components
+United States of America
+416
+Avis Budget Group Inc
+Road & Rail
+United States of America
+417
+Berkshire Hathaway Inc
+Diversified Financial Services
+United States of America
+418
+Big Lots Inc
+Multiline Retail
+United States of America
+419
+Blackstone Group LP
+Capital Markets
+United States of America
+420
+Builders FirstSource Inc
+Building Products
+United States of America
+421
+CalAtlantic Group Inc
+Household Durables
+United States of America
+422
+Carmax Inc
+Specialty Retail
+United States of America
+423
+CDW Corp
+Electronic Equipment, Instruments & Components
+United States of America
+424
+Centene Corp
+Health Care Providers & Services
+United States of America
+425
+Chemours Co
+Chemicals
+United States of America
+426
+Citizens Financial Group Inc
+Banks
+United States of America
+427
+Comcast Corp
+Media
+United States of America
+428
+Community Health Systems Inc
+Health Care Providers & Services
+United States of America
+429
+Core-Mark Holding Company Inc
+Distributors
+United States of America
+430
+Dell Technologies Inc
+Software
+United States of America
+431
+Dick's Sporting Goods Inc
+Specialty Retail
+United States of America
+432
+Dillard's Inc
+Multiline Retail
+United States of America
+433
+Discover Financial Services
+Consumer Finance
+United States of America
+434
+Discovery Communications Inc
+Media
+United States of America
+435
+DISH Network Corp
+Media
+United States of America
+436
+Dollar General Corp
+Multiline Retail
+United States of America
+437
+Dollar Tree Inc
+Multiline Retail
+United States of America
+438
+Energy Transfer Partners LP
+Oil, Gas & Consumable Fuels
+United States of America
+439
+Essendant Inc
+Commercial Services & Supplies
+United States of America
+440
+Expedia Inc
+Internet & Direct Marketing Retail
+United States of America
+441
+Expeditors International of Washington Inc
+Air Freight & Logistics
+United States of America
+442
+Fidelity National Information Services Inc
+IT Services
+United States of America
+443
+First Data Corp
+IT Services
+United States of America
+444
+Fiserv Inc
+IT Services
+United States of America
+445
+Frontier Communications Corp
+Diversified Telecommunication Services
+United States of America
+446
+General Dynamics Corp
+Aerospace & Defense
+United States of America
+447
+Genuine Parts Co
+Distributors
+United States of America
+448
+Global Partners LP
+Oil, Gas & Consumable Fuels
+United States of America
+449
+Harris Corp
+Communications Equipment
+United States of America
+450
+HCA Healthcare Inc
+Health Care Providers & Services
+United States of America
+451
+HD Supply Holdings Inc
+Trading Companies & Distributors
+United States of America
+452
+Huntington Ingalls Industries Inc
+Aerospace & Defense
+United States of America
+453
+Icahn Enterprises LP
+Industrial Conglomerates
+United States of America
+454
+iHeartMedia Inc
+Media
+United States of America
+455
+Ingredion Inc
+Food Products
+United States of America
+456
+Insight Enterprises Inc
+Electronic Equipment, Instruments & Components
+United States of America
+457
+INTL FCStone Inc
+Capital Markets
+United States of America
+458
+Kelly Services Inc
+Professional Services
+United States of America
+459
+Kindred Healthcare Inc
+Health Care Providers & Services
+United States of America
+460
+L3 Technologies Inc
+Aerospace & Defense
+United States of America
+461
+Laboratory Corporation of America Holdings
+Health Care Providers & Services
+United States of America
+462
+Lear Corp
+Auto Components
+United States of America
+463
+Lennar Corp
+Household Durables
+United States of America
+464
+LifePoint Health Inc
+Health Care Providers & Services
+United States of America
+465
+Live Nation Entertainment Inc
+Media
+United States of America
+466
+NCR Corp
+Technology Hardware, Storage & Peripherals
+United States of America
+467
+NetApp Inc
+Technology Hardware, Storage & Peripherals
+United States of America
+468
+NGL Energy Partners LP
+Oil, Gas & Consumable Fuels
+United States of America
+469
+NVR Inc
+Household Durables
+United States of America
+470
+Olin Corp
+Chemicals
+United States of America
+471
+Patterson Companies Inc
+Health Care Providers & Services
+United States of America
+472
+PayPal Holdings Inc
+IT Services
+United States of America
+473
+Plains All American Pipeline LP
+Oil, Gas & Consumable Fuels
+United States of America
+474
+Plains GP Holdings LP
+Oil, Gas & Consumable Fuels
+United States of America
+475
+Priceline Group Inc
+Internet & Direct Marketing Retail
+United States of America
+476
+Quintiles IMS Holdings Inc
+Life Sciences Tools & Services
+United States of America
+477
+Raymond James Financial Inc
+Capital Markets
+United States of America
+478
+Realogy Holdings Corp
+Real Estate Management & Development
+United States of America
+479
+Reliance Steel & Aluminum Co
+Metals & Mining
+United States of America
+480
+Robert Half International Inc
+Professional Services
+United States of America
+481
+Sanmina Corp
+Electronic Equipment, Instruments & Components
+United States of America
+482
+Santander Consumer USA Holdings Inc
+Consumer Finance
+United States of America
+483
+Seaboard Corp
+Food Products
+United States of America
+484
+Sears Holdings Corp
+Multiline Retail
+United States of America
+485
+Sunoco LP
+Oil, Gas & Consumable Fuels
+United States of America
+486
+Synchrony Financial
+Consumer Finance
+United States of America
+487
+SYNNEX Corp
+Electronic Equipment, Instruments & Components
+United States of America
+488
+T-Mobile US Inc
+Wireless Telecommunication Services
+United States of America
+489
+Targa Resources Corp
+Oil, Gas & Consumable Fuels
+United States of America
+490
+Tech Data Corp
+Electronic Equipment, Instruments & Components
+United States of America
+491
+Tenet Healthcare Corp
+Health Care Providers & Services
+United States of America
+492
+Toll Brothers Inc
+Household Durables
+United States of America
+493
+Tractor Supply Co
+Specialty Retail
+United States of America
+494
+Universal Health Services Inc
+Health Care Providers & Services
+United States of America
+495
+Veritiv Corp
+Trading Companies & Distributors
+United States of America
+496
+WellCare Health Plans Inc
+Health Care Providers & Services
+United States of America
+497
+WestRock Co
+Containers & Packaging
+United States of America
+498
+Windstream Holdings Inc
+Diversified Telecommunication Services
+United States of America
+499
+World Fuel Services Corp
+Oil, Gas & Consumable Fuels
+United States of America
+500
+XPO Logistics Inc
+Air Freight & Logistics
+United States of America
