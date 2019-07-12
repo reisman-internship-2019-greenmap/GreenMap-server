@@ -7,7 +7,7 @@ const fs = require('fs');
 
 //For making additional url requests, check PROMISE 3 for how the greenscore is grabbed. (In copying format)
 
-var files = ["Corporate Knight Clean.txt", "Newsweek 500 Clean.txt", "Newsweek 500 2 Clean.txt", "Yearbook Robecosam Clean.txt"];
+var files = ["Corporate-Knight-Clean.txt", "Newsweek-500-Clean.txt", "Newsweek-500-2-Clean.txt", "Yearbook-Robecosam-Clean.txt"];
 
 var companies = {}; //List of company objects that gets generated from the provided files.
 
@@ -149,7 +149,7 @@ promise_ugh.then(function(){        //Now for the network requests
   const collectionName = 'esg';
 
   //The files we read and base url for websites we query
-  var file1 = "Company Master List.txt"
+  var file1 = "Company-Master-List.txt"
   var wikirate_url = "https://wikirate.org/"
   var greenscore_url = "https://wikirate.org/Newsweek+Newsweek_Green_Score+"
 
