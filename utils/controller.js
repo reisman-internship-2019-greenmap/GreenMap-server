@@ -1,18 +1,19 @@
 const { models } = require('../dal/database');
 const { StatusCode } = require('../shared/constants');
-
+const { greenScoreLookup } = require('./wikirates');
 
 /**
  * Helper method to insert a Product into the collection
  */
-exports.insertProduct = function(body, barcode, res) {
 
+
+exports.insertProduct = function(body, barcode, res) {
   let newProduct = new models.Product ({
     barcode: barcode,
     name: body.name,
     category: body.categories,
     manufacturer: body.manufacturer || body.brand,
-    ESG: null
+    ESG: greenScoreLookup({manufacturer: body.manufacturer || body.brand })
   });
 
   // save new product to MongoDB
