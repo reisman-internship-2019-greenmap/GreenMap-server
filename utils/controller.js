@@ -7,13 +7,13 @@ const { greenScoreLookup } = require('./wikirates');
  */
 
 
-exports.insertProduct = function(body, barcode, res) {
+exports.insertProduct = function(body, barcode, res, greenScore) {
   let newProduct = new models.Product ({
     barcode: barcode,
     name: body.name,
     category: body.categories,
     manufacturer: body.manufacturer || body.brand,
-    ESG: greenScoreLookup({manufacturer: body.manufacturer || body.brand })
+    ESG: greenScore
   });
 
   // save new product to MongoDB
