@@ -1,114 +1,75 @@
 const rp = require('request-promise');
 
-// module.exports = {
-//   greenScoreLookup: ({manufacturer: manufacturer}) => {
-//     manufacturer = manufacturer.replace(/ /g, "%20");
-//     let esg = [];
-//     let wikirateRequestOptions = {
-//       url : "https://wikirate.org/" + manufacturer,
-//       // method: 'GET',
-//       headers: {
-//         'content-type': 'application/json'
-//       },
-//       json: true
-
-//     }
-
-//     rp(wikirateRequestOptions)
-//     .then((response) => {
-//       if('aliases' in response) {
-//         aliases = response.aliases.content;
-//         if(!(manufacturer in aliases)) {
-//           aliases.push(manufacturer);
-//         }
-//         for (let i = 0; i < aliases.length; i++) {
-//           alias = aliases[i].replace(/ /g, "%20");
-//           if(alias.charAt(alias.length - 1) == ".") {
-//             alias = alias.substring(0, alias.length - 1);
-//           } 
-//           let greenscoreRequestOptions = {
-//             url: "https://wikirate.org/Newsweek+Newsweek_Green_Score+" + alias,
-//             headers: {
-//               'content-type': 'application/json'
-//             },
-//             json: true
-//           }
-
-//           rp(greenscoreRequestOptions)
-//             .then((response) => {
-//               if('items' in response) {
-//                 if('value' in response.items[0]) {
-//                   esg.push(response.items[0].value);
-//                 }
-//               }
-//             })
-//             .catch((error) => {
-//             })
-//           console.log(esg);
-//         }
-//       } else {
-//         // Do green score query on the manufacturer
-//           alias = manufacturer;
-//           if(alias.charAt(alias.length - 1) == ".") {
-//             alias = alias.substring(0, alias.length - 1);
-//           } 
-//           let greenscoreRequestOptions = {
-//             url: "https://wikirate.org/Newsweek+Newsweek_Green_Score+" + alias,
-//             headers: {
-//               'content-type': 'application/json'
-//             },
-//             json: true
-//           }
-
-//           rp(greenscoreRequestOptions)
-//             .then((response) => {
-//               if('items' in response) {
-//                 if('value' in response.items[0]) {
-//                   return resizeBy.items[0];
-//                 }
-//               }
-//             })
-//             .catch((error) => {
-//               console.log("Error finding response from wikirates");
-//               return null;
-//             })        
-//         }
-//     }).catch((error) => {
-//       console.log("Error finding response from wikirates");
-//       return null;
-//     })
-//   }
-// }
-
 module.exports = {
-  greenScoreLookup: ({manufacturer: manufacturer}) => {
+  aliasesLookup: ({manufacturer: manufacturer}) => {
+    let aliases = [];
     manufacturer = manufacturer.replace(/ /g, "%20");
-    let greenscoreRequestOptions = {
-      url: "https://wikirate.org/Newsweek+Newsweek_Green_Score+" + manufacturer,
+
+    let wikirateRequestOptions = {
+      url: "https://wikirate.org/" + manufacturer,
       headers: {
         'content-type': 'application/json'
       },
       json: true
     }
 
-    return rp(greenscoreRequestOptions)
+    return rp(wikirateRequestOptions)
       .then((response) => {
-        if('items' in response) {
-          if('value' in response.items[0]) {
-            return Promise.all([response.items[0].value]);
-          } else {
-            return Promise.all([null]);
-          }
-        } else {
-          return Promise.all([null]);
+        if('aliases' in response) {
+          aliases = response.aliases.content;
         }
+        if(!(manufacturer in aliases)) {
+          aliases.push(manufacturer);
+        }
+        return Promise.all(aliases);
       })
       .then((res) => {
-        return { body: res[0]};
+        return {body: res};
       })
       .catch((err) => {
-        return { body: null };
-        console.log("Error fetching score from wikirates");
+          aliases.push(manufacturer);
+          console.log("couldn't find aliases");
+          return {body: aliases};
       });
+  },
+
+  greenScoreLookup: ({aliases: aliases}) => {
+    let allScores = [];
+    for(let i = 0; i < aliases.length; i++) {
+      alias = aliases[i].replace(/ /g, "%20");
+      let greenscoreRequestOptions = {
+        url: "https://wikirate.org/Newsweek+Newsweek_Green_Score+" + alias,
+        headers: {
+          'content-type': 'application/json'
+        },
+        json: true
+      }
+      allScores[i] = new Promise((resolve, reject) => {
+        rp(greenscoreRequestOptions)
+        .then((response) => {
+          if('items' in response) {
+            if('value' in response.items[0]) {
+              resolve(response.items[0].value);
+            }
+          }
+        })
+        .catch((e) => {
+          resolve(null);
+        })   
+      })
+    }
+    
+    return Promise.all(allScores)
+      .then((scores) => {
+        for(let i = 0; i < scores.length; i++) {
+          if(scores[i] != null) {
+            return {body: scores[i]};
+          }
+        }
+        return {body: null}
+      })
+      .catch((e) => {
+        return {body: null};
+      })
   }
 }
