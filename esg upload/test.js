@@ -15,7 +15,9 @@ for(i = 0; i < files.length; i++){    //Make file reading promises
 }
 
 Promise.all(promises).then(function(values){  //Read files, make company objects from them
+  console.log("Reading Files")
   for(i = 0; i < values.length; i++){
+    console.log("Reading File: " + i)
     var ls = values[i]
     var j;
     for(j = 0; j < ls.length; j++){
@@ -34,7 +36,7 @@ Promise.all(promises).then(function(values){  //Read files, make company objects
       switch(i){
         case 0:
           var next = {company: name,
-                    alias: [],
+                    alias: [name],
                     category: [],
                     greenscore: "?",
                     dow: "?",
@@ -64,25 +66,45 @@ Promise.all(promises).then(function(values){  //Read files, make company objects
     }
   }
   promises = []
-  for(i = 0; i < companies.length; i++){      //Make alias promises
-    promises.push(query_support.get_url_json(alias_url, companies[i].company));
+  console.log("Generating Promises: Alias URL")
+  for(i = 0; i < Object.keys(companies).length; i++){      //Make alias promises
+    promises.push(query_support.get_url_json(alias_url, Object.keys(companies)[i]));
   }
 
   Promise.all(promises).then(function(values){  //Query wikirates for company aliases
+    console.log("Processing Results of Promises: Alias URL")
     for(i = 0; i < values.length; i++){
       if(values[i] != null){
-        companies[values[i].company].aliases.push(values[i].body.aliases.content);
+        try{
+          if(values[i].body.hasOwnProperty("aliases")){
+            if(values[i].body.aliases.hasOwnProperty("content")){
+              companies[values[i].company].alias.push(values[i].body.aliases.content);
+            }
+          }
+        }
+        catch(err){
+          console.log(err);
+        }
       }
     }
     promises = []
-    for(i = 0; i < companies.length; i++){    //Make greenscore promises
-      promises.push(query_support.get_url_json(greenscore_url, companies[i].company));
+    console.log("Generating Promises: Greenscore URL")
+    for(i = 0; i < Object.keys(companies).length; i++){    //Make greenscore promises
+      promises.push(query_support.get_url_json(greenscore_url, Object.keys(companies)[i]));
     }
 
     Promise.all(promises).then(function(values){    //Query wikirates for company greenscores
+      console.log("Processing Results of Promises: Greenscore URL")
       for(i = 0; i < values.length; i++){
         if(values[i] != null){
-          companies[values[i].company].greenscore = values[i].items[0].value;
+          try{
+            if(values[i].hasOwnProperty("items")){
+              companies[values[i].company].greenscore = values[i].items[0].value;
+            }
+          }
+          catch(err){
+            console.log(err);
+          }
         }
       }
 
@@ -93,24 +115,21 @@ Promise.all(promises).then(function(values){  //Read files, make company objects
       const url = "mongodb+srv://" + username + ":" + password + "@" + context + "-crohe.gcp.mongodb.net/test?retryWrites=true"
       const collectionName = 'esg';
 
-      console.log("here")
-
       MongoClient.connect(url, {useNewUrlParser: true}, function(err, client){    //Establish connection to the database
         console.log("MongoDB Client Open")
         const db = client.db(dbName);
         const collection = db.collection(collectionName);
 
         promises = []
-
-        for(i = 0; i < companies.length; i++){
-          promises.push(query_support.mongo_collection_insert(collection, companies[i], true));
+        console.log("Generating Promises: MongoDB Insert")
+        for(i = 0; i < Object.keys(companies).length; i++){
+          promises.push(query_support.mongo_collection_insert(collection, companies[Object.keys(companies)[i]], false));
         }
 
-        console.log(promises)
-
         Promise.all(promises).then(function(values){
-          console.log("MongoDB Client Closed")
+          console.log("Processing Results of Promises: MongoDB Insert")
           client.close();
+          console.log("MongoDB Client Closed")
         });
       });
     });

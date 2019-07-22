@@ -11,7 +11,7 @@ module.exports = {
           resolve({company: company, body: JSON.parse(body)});           //JSON parse the result, if not in json format we try again forever (need better way, probably)
         }
         catch(err){
-          reject(null);
+          resolve(null);
         }
       });
     });
@@ -20,6 +20,9 @@ module.exports = {
   get_file_data : function(file_path){
     return new Promise(function(resolve, reject){   //Read a file, depending on which one it is we have a different format for reading.
       fs.readFile(file_path, "utf-8", (err, data) => {
+        if(err != null){
+          resolve([]);
+        }
         data = data.split("\r\n")
         resolve(data);
       });
@@ -30,7 +33,7 @@ module.exports = {
     return new Promise(function(resolve, reject){
       collection.insertOne(doc, function(err, result){
         if(verbose){
-          console.log("Inserted: " + doc[i])
+          console.log("Inserted: " + doc)
         }
         resolve();
       });
