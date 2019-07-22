@@ -7,7 +7,7 @@ const fs = require('fs');
 
 //For making additional url requests, check PROMISE 3 for how the greenscore is grabbed. (In copying format)
 
-var files = ["Corporate-Knight-Clean.txt", "Newsweek-500-Clean.txt", "Newsweek-500-2-Clean.txt", "Yearbook-Robecosam-Clean.txt"];
+var files = ["Corporate-Knight-Clean.txt", "Newsweek-500-Clean.txt", "Newsweek-500-2-Clean.txt", "Yearbook-Robecosam-Clean.txt", "Company-Master-List.txt"];
 
 var companies = {}; //List of company objects that gets generated from the provided files.
 
