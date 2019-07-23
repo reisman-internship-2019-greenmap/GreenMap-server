@@ -22,6 +22,7 @@ const MongoClient = require('mongodb').MongoClient;
     - Again, will sometimes miss but previously obtained data from the 4 Files gives us some context.
   - Connect to MongoDB Database, retrieve Collection, and insert all Company objects as Documents to it
 
+  Written by Ada Clevinger for the project Greenmap
 */
 
 var files = ["Company-Master-List.txt", "Corporate-Knight-Clean.txt", "Newsweek-500-Clean.txt", "Newsweek-500-2-Clean.txt", "Yearbook-Robecosam-Clean.txt"];

@@ -28,6 +28,8 @@ const fs = require("fs")
 
    NOTE: Add functions to the TODO if you want Ada or anyone else to write them; will probably want to either talk directly
    with the person on what it should do or write a descriptive header for it (Functionality, Parameters, what it Returns).
+
+   Written by Ada Clevinger for the project Greenmap
 */
 
 module.exports = {
