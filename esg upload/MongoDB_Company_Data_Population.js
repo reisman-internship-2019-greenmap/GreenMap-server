@@ -10,9 +10,9 @@ const MongoClient = require('mongodb').MongoClient;
   will take around five minutes to complete. It uploads ~4000 documents to the specified database, and
   writes to the console to alert the user of its progress.
 
-  tldr; takes 5 minutes to complete.
+  tldr; takes 5 minutes to complete. (287.686 seconds in my test case)
 
-  In order:
+  In order of Behavior:
    - Read local Files
      - Master List to generate all unique objects immediately
      - 4 Files that have additional information which is appended to the previously generated company objects
@@ -21,6 +21,11 @@ const MongoClient = require('mongodb').MongoClient;
   - Query Wikirates for the Greenscore values associated to each company
     - Again, will sometimes miss but previously obtained data from the 4 Files gives us some context.
   - Connect to MongoDB Database, retrieve Collection, and insert all Company objects as Documents to it
+
+  Further Work:
+    - Decide if we want to filter the produced company list by those which have wikirates pages; this could
+    potentially help remove duplicate company objects that have one another as aliases, or simply remove
+    companies that we don't have much information on.
 
   Written by Ada Clevinger for the project Greenmap
 */
