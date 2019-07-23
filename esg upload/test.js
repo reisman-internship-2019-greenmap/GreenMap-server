@@ -6,6 +6,12 @@ const MongoClient = require('mongodb').MongoClient;
   to generate objects that additional information is appended to via requests to wikirates for that
   company's aliases as well as its Greenscore.
 
+  Due to the number of queries performed and the existence of timeouts for their failure, this program
+  will take around five minutes to complete. It uploads ~4000 documents to the specified database, and
+  writes to the console to alert the user of its progress.
+
+  tldr; takes 5 minutes to complete.
+
   In order:
    - Read local Files
      - Master List to generate all unique objects immediately
@@ -29,10 +35,10 @@ var promises = []       //Holds promises for Promise.all([]), gets re-used and r
 var i;
 
 for(i = 0; i < files.length; i++){    //Make file reading promises
-  promises.push(query_support.get_file_data(files[i]));   //Calls function from query_support module to get promises
+  promises.push(query_support.get_file_data(files[i], false));   //Calls function from query_support module to get promises
 }
 
-Promise.all(promises).then(function(values){  //Read files, make company objects from them
+Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){  //Read files, make company objects from them
   console.log("Reading Files")
   for(i = 0; i < values.length; i++){
     console.log("Reading File: " + i)
@@ -89,7 +95,7 @@ Promise.all(promises).then(function(values){  //Read files, make company objects
     promises.push(query_support.get_url_company(alias_url, Object.keys(companies)[i]));  //Module method to get generic .json from url query
   }
 
-  Promise.all(promises).then(function(values){  //Query wikirates for company aliases
+  Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){  //Query wikirates for company aliases
     console.log("Processing Results of Promises: Alias URL")
     for(i = 0; i < values.length; i++){
       if(values[i] != null){
@@ -111,7 +117,7 @@ Promise.all(promises).then(function(values){  //Read files, make company objects
       promises.push(query_support.get_url_company(greenscore_url, Object.keys(companies)[i])); //Module method, get generic .json from a different url
     }
 
-    Promise.all(promises).then(function(values){    //Query wikirates for company greenscores
+    Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){    //Query wikirates for company greenscores
       console.log("Processing Results of Promises: Greenscore URL")
       for(i = 0; i < values.length; i++){
         if(values[i] != null){
@@ -141,10 +147,10 @@ Promise.all(promises).then(function(values){  //Read files, make company objects
         promises = []
         console.log("Generating Promises: MongoDB Insert")
         for(i = 0; i < Object.keys(companies).length; i++){                       //Generate promises for inserting to our collection using the query_support module
-          promises.push(query_support.mongo_collection_insert(collection, companies[Object.keys(companies)[i]], false));
+          promises.push(query_support.mongo_collection_insert_one(collection, companies[Object.keys(companies)[i]], false));
         }
 
-        Promise.all(promises).then(function(values){            //After all promises resolved, close MongoDB connection and end
+        Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){            //After all promises resolved, close MongoDB connection and end
           console.log("Processing Results of Promises: MongoDB Insert")
           client.close();
           console.log("MongoDB Client Closed")
