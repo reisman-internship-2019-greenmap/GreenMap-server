@@ -5,6 +5,8 @@
 
 Greenmap-Server is a Node.js RESTful-api built to serve the [Greenmap-App](https://github.com/reisman-internship-2019-greenmap/GreenMap-app). 
 
+[Postman API Documentation](https://documenter.getpostman.com/view/3989380/SVYqNe4f?version=latest#deeeef3a-93dd-450f-856f-c725ab237da5)
+
 ### Prerequisites
 
 Ensure that Node.js and npm is installed on your device.
