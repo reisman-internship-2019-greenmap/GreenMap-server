@@ -41,7 +41,7 @@ var promises = []       //Holds promises for Promise.all([]), gets re-used and r
 var i;
 
 for(i = 0; i < files.length; i++){    //Make file reading promises
-  promises.push(query_support.get_file_data(files[i], false));   //Calls function from query_support module to get promises
+  promises.push(query_support.get_file_data("esg upload/"  + files[i], false));   //Calls function from query_support module to get promises
 }
 
 Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){  //Read files, make company objects from them
@@ -108,7 +108,9 @@ Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){ 
         try{
           if(values[i].body.hasOwnProperty("aliases")){             //Avoids most errors, awkward and annoying to check each one but eh
             if(values[i].body.aliases.hasOwnProperty("content")){
-              companies[values[i].company].alias.push(values[i].body.aliases.content);    //Append aliases to company object
+              for(j = 0; j < values[i].body.aliases.content.length; j++){
+                companies[values[i].company].alias.push(values[i].body.aliases.content[j]);    //Append aliases to company object
+              }
             }
           }
         }
