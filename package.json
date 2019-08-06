@@ -30,7 +30,8 @@
     "mongoose": "^5.5.5",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
-    "wikidata-sdk": "^6.4.0"
+    "wikidata-sdk": "^6.4.0",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
