@@ -242,6 +242,52 @@ module.exports = {
     });
   },
 
+  mongo_collection_retrieve : function(collection, field, key, verbose){
+    return new Promise(function(resolve, reject){
+      collection.find({[field] : key}).toArray(function(err, docs){
+        try{
+          assert.equal(err, null);
+          if(verbose){
+            console.log("Document retrieved");
+          }
+          resolve(docs);
+        }
+        catch(err){
+          if(verbose){
+            console.log("ERROR LOG - TURN OFF VERBOSE TO STOP SEEING THIS");
+            console.log(collection);
+            console.log(docs);
+            console.log(err);
+          }
+          reject();
+        }
+      });
+    });
+  },
+
+  mongo_collection_update_one : function(collection, find_field, find_key, update_field, update_key, verbose){
+    return new Promise(function(resolve, reject){
+      collection.updateOne({[find_field] : find_key}, {$set: {[update_field] : update_key}}, function(err, result){
+        try{
+          assert.equal(err, null);
+          if(verbose){
+            console.log("Document updated");
+          }
+          resolve();
+        }
+        catch(err){
+          if(verbose){
+            console.log("ERROR LOG - TURN OFF VERBOSE TO STOP SEEING THIS");
+            console.log(collection);
+            console.log(docs);
+            console.log(err);
+          }
+          reject();
+        }
+      });
+    });
+  },
+
   /*
     This function provides an easy method for deleting all of the contents of a MongoDB
     collection that has been provided.
