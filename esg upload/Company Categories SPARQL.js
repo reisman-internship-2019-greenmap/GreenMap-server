@@ -31,6 +31,21 @@ var products = [
   "auto parts",
   "automotive industry",
   "mass media",
+  "photo industry",
+  "information technology",
+  "networking hardware",
+  "consumer electronics",
+  "multimedia",
+  "video games",
+  "films",
+  "tv shows",
+  "music",
+  "telecommunications equipment",
+  "semiconductors",
+  "desktops",
+  "laptops",
+  "netbooks",
+  "graphics cards",
 ]
 
 var xmlHttp = new XMLHttpRequest();
@@ -60,7 +75,9 @@ for(i = 0; i < products.length; i++){
       if(collec[out[j].companyLabel] == null){
         collec[out[j].companyLabel] = [];
       }
-      collec[out[j].companyLabel].push(products[i]);
+      if(collec[out[j].companyLabel].indexOf(products[i]) == -1){
+        collec[out[j].companyLabel].push(products[i]);
+      }
     }
 }
 console.log("Completed SPARQL Queries");
@@ -93,7 +110,6 @@ MongoClient.connect(url, {useNewUrlParser: true}, function(err, client){    //Es
       var val = values[i];
       if(val != null && val != undefined && val.length > 0){
         val = val[0];
-        console.log(val);
         var category = val.category;
         var j;
         for(j = 0; j < val.alias.length; j++){
@@ -107,6 +123,7 @@ MongoClient.connect(url, {useNewUrlParser: true}, function(err, client){    //Es
             continue;
           }
         }
+        console.log(val.company);
         console.log(category);
         promises.push(query_support.mongo_collection_update_one(collection, "alias", {$all:[val.company]}, "category", category, false));
       }
