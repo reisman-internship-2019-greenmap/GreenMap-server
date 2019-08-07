@@ -137,8 +137,9 @@ module.exports = {
     return new Promise(function(resolve, reject){   //Read a file, depending on which one it is we have a different format for reading.
       fs.readFile(file_path, "utf-8", function(err, data){
         try{
-          assert.equal(err, null)
-          data = data.split("\r\n")
+          assert.equal(err, null);
+          data.replace("\r\n", "\n");
+          data = data.split("\n");
           resolve(data);
         }
         catch(err){
