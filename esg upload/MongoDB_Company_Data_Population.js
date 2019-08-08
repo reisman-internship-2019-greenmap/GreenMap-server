@@ -96,8 +96,9 @@ Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){ 
     }
   }
   promises = []
+  num_companies = 100; //Object.keys(companies).length;
   console.log("Generating Promises: Alias URL")
-  for(i = 0; i < Object.keys(companies).length; i++){      //Make alias promises
+  for(i = 0; i < num_companies; i++){      //Make alias promises
     promises.push(query_support.get_url_company(alias_url, Object.keys(companies)[i]));  //Module method to get generic .json from url query
   }
 
@@ -121,8 +122,8 @@ Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){ 
     }
     promises = []
     console.log("Generating Promises: Greenscore URL")
-    for(i = 0; i < Object.keys(companies).length; i++){    //Make greenscore promises
-      promises.push(query_support.get_url_company(greenscore_url, Object.keys(companies)[i])); //Module method, get generic .json from a different url
+    for(i = 0; i < num_companies; i++){    //Make greenscore promises
+      promises.push(query_support.get_url_company(greenscore_url, Object.keys(companies)[i], true)); //Module method, get generic .json from a different url
     }
 
     Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){    //Query wikirates for company greenscores
@@ -130,8 +131,10 @@ Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){ 
       for(i = 0; i < values.length; i++){
         if(values[i] != null){
           try{
-            if(values[i].hasOwnProperty("items")){
-              companies[values[i].company].greenscore = values[i].items[0].value;   //Set the greenscore value we found from the url
+            if(values[i].body.hasOwnProperty("items")){
+              if(values[i].body.items.length > 0){
+                companies[values[i].company].greenscore = values[i].body.items[0].value;   //Set the greenscore value we found from the url
+              }
             }
           }
           catch(err){
@@ -140,12 +143,14 @@ Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){ 
         }
       }
 
+      
+
       const username = "patsy";                                 //Relevant information to access our MongoDB collection
       const password = "patsy";                                 //Change this information for uploading to a different database
       const context = "greenmap";
       const database_name = "sample_test";
       const url = "mongodb+srv://" + username + ":" + password + "@" + context + "-crohe.gcp.mongodb.net/test?retryWrites=true"
-      const collection_name = 'esg';
+      const collection_name = 'esg3';
 
       MongoClient.connect(url, {useNewUrlParser: true}, function(err, client){    //Establish connection to the database
         console.log("MongoDB Client Open")
@@ -154,7 +159,7 @@ Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){ 
 
         promises = []
         console.log("Generating Promises: MongoDB Insert")
-        for(i = 0; i < Object.keys(companies).length; i++){                       //Generate promises for inserting to our collection using the query_support module
+        for(i = 0; i < num_companies; i++){                       //Generate promises for inserting to our collection using the query_support module
           promises.push(query_support.mongo_collection_insert_one(collection, companies[Object.keys(companies)[i]], false));
         }
 

@@ -9,6 +9,7 @@ Cisco Systems
 Autodesk
 Siemens
 Samsung SDI
+Samsung
 Aareal Bank
 Enbridge
 Merck
