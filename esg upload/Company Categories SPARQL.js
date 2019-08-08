@@ -121,7 +121,7 @@ const password = "patsy";                                 //Change this informat
 const context = "greenmap";
 const database_name = "sample_test";
 const url = "mongodb+srv://" + username + ":" + password + "@" + context + "-crohe.gcp.mongodb.net/test?retryWrites=true"
-const collection_name = 'esg';
+const collection_name = 'esg2';
 
 //Nomenclature for searching by a term existing in an array: {"alias" : { $all: ["HP"] } }
 
