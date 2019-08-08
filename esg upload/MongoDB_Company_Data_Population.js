@@ -169,13 +169,13 @@ Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){ 
             for(k = 0; k < next.category.length; k++){
               curr.category.push(next.category[k]);
             }
-            if(curr.greenscore != "?"){
+            if(curr.greenscore == "?"){
               curr.greenscore = next.greenscore;
             }
-            if(curr.dow != "?"){
+            if(curr.dow == "?"){
               curr.dow = next.dow;
             }
-            if(curr.sustainable != "?"){
+            if(curr.sustainable == "?"){
               curr.sustainable = next.sustainable;
             }
             companies[next.company] = undefined;
