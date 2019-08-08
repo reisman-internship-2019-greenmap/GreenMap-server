@@ -41,7 +41,7 @@ var promises = []       //Holds promises for Promise.all([]), gets re-used and r
 var i;
 
 for(i = 0; i < files.length; i++){    //Make file reading promises
-  promises.push(query_support.get_file_data("esg upload/"  + files[i], false));   //Calls function from query_support module to get promises
+  promises.push(query_support.get_file_data(files[i], false));   //Calls function from query_support module to get promises
 }
 
 Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){  //Read files, make company objects from them
@@ -68,9 +68,9 @@ Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){ 
           var next = {company: name,
                     alias: [name],
                     category: [],
-                    greenscore: "?",
-                    dow: "?",
-                    sustainable: "?"};
+                    greenscore: null,
+                    dow: null,
+                    sustainable: null};
           companies[name] = next;
           break;
         case 1:                           //Corporate Knight, get sustainability score and a category type
@@ -143,9 +143,10 @@ Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){ 
       const username = "patsy";                                 //Relevant information to access our MongoDB collection
       const password = "patsy";                                 //Change this information for uploading to a different database
       const context = "greenmap";
-      const database_name = "sample_test";
-      const url = "mongodb+srv://" + username + ":" + password + "@" + context + "-crohe.gcp.mongodb.net/test?retryWrites=true"
-      const collection_name = 'esg';
+      const database_name = "test";
+      // const url = "mongodb+srv://" + username + ":" + password + "@" + context + "-crohe.gcp.mongodb.net/test?retryWrites=true"
+      const url = 'mongodb://localhost:27017'
+      const collection_name = 'companies';
 
       MongoClient.connect(url, {useNewUrlParser: true}, function(err, client){    //Establish connection to the database
         console.log("MongoDB Client Open")

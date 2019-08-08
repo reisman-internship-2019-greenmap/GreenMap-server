@@ -18,8 +18,32 @@ let Product = mongoose.model("Product", {
     required: true
   },
   ESG: {
-    type: Number
+    type: String
   }
 });
 
-module.exports = Product;
+let Company = mongoose.model("Company", {
+  company: {
+    type: String,
+    required: true
+  },
+  alias: {
+    type: Array,
+    required: true 
+  },
+  category: {
+    type: Array,
+    required: true
+  },
+  greenscore: {
+    type: Number
+  },
+  dow: {
+    type: Number
+  },
+  sustainable: {
+    type: String
+  }
+})
+
+module.exports = {Product, Company};

@@ -138,7 +138,7 @@ module.exports = {
       fs.readFile(file_path, "utf-8", function(err, data){
         try{
           assert.equal(err, null)
-          data = data.split("\r\n")
+          data = data.split("\n")
           resolve(data);
         }
         catch(err){

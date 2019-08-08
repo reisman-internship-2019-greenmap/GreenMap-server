@@ -35,6 +35,7 @@ let getProduct = (req, res) => {
             return res.status(StatusCode.PRECONDITION_FAILED).send(null);
         // else
         let barcode = req.params.id;
+        let greenScore = null;
         try {
             // search for product in MongoDB
             let doc = await models.Product.findOne({barcode});
@@ -57,9 +58,21 @@ let getProduct = (req, res) => {
 
             if(!('brand' in datafinitiRes.body.records[0]) && !('manufacturer' in datafinitiRes.body.records[0])) {
                 console.error(`couldn't find a manufacturer for ${barcode}`);
+            } else {
+                let companyName = (datafinitiRes.body.records[0].manufacturer || datafinitiRes.body.records[0].brand);
+                let companyDoc = await models.Company.findOne({alias: 
+                    { $regex: new RegExp("^" + companyName.toLowerCase() + "$", "i") }
+                    // (datafinitiRes.body.records[0].manufacturer || datafinitiRes.body.records[0].brand).toLowerCase()}
+                });
+                if(companyDoc) {
+                    console.log(`found company in wikidata`);
+                    if(companyDoc.sustainable != null) {
+                        greenScore = companyDoc.sustainable;
+                    }
+                }          
             }
 
-            insertProduct(datafinitiRes.body.records[0], barcode, res);
+            insertProduct(datafinitiRes.body.records[0], barcode, res, greenScore);
 
         } catch(err) {
             console.error(err);
@@ -110,6 +123,7 @@ let addProductByLookup = async(req, res) => {
             return res.status(StatusCode.PRECONDITION_FAILED).send(null);
         // else
         let barcode = req.body.barcode;
+        let greenScore = null;
         let doc = await models.Product.findOne({ barcode });
         if (doc) {
             console.error(`product ${req.body.barcode} already exists in database`);
@@ -129,9 +143,21 @@ let addProductByLookup = async(req, res) => {
 
         if(!('brand' in datafinitiRes.body.records[0]) && !('manufacturer' in datafinitiRes.body.records[0])) {
             console.error(`couldn't find a manufacturer for ${barcode}`);
+        } else {
+            let companyName = (datafinitiRes.body.records[0].manufacturer || datafinitiRes.body.records[0].brand);
+            let companyDoc = await models.Company.findOne({alias: 
+                { $regex: new RegExp("^" + companyName.toLowerCase() + "$", "i") }
+                // (datafinitiRes.body.records[0].manufacturer || datafinitiRes.body.records[0].brand).toLowerCase()}
+            });
+            if(companyDoc) {
+                console.log(`found company in wikidata`);
+                if(companyDoc.sustainable != null) {
+                    greenScore = companyDoc.sustainable;
+                }
+            }          
         }
 
-        insertProduct(datafinitiRes.body.records[0], barcode, res);
+        insertProduct(datafinitiRes.body.records[0], barcode, res, greenScore);
     });
 };
 
@@ -142,7 +168,7 @@ let addProductByLookup = async(req, res) => {
  * @param res  response
  */
 let getTopManufacturers = async(req, res) => {
-    connectDb().then(async () => {
+    connectDb().then(async (db) => {
         if(!req.params.id) {
             return res.status(StatusCode.PRECONDITION_FAILED).send();
         }      
@@ -157,26 +183,27 @@ let getTopManufacturers = async(req, res) => {
                 }
 
                 let category = doc.category[doc.category.length - 1];
-
+                console.log(category);
                 // Query to return similary category of Product
                 try {
-                    let docs = await models.Product.aggregate([
+                    let docs = await db.models.Company.aggregate([
                         {$match: {
                         'category': category,
-                        "ESG":{$ne:null}
+                        "sustainable":{$ne:null}
                         }},
                         {$group: {
-                        _id: '$manufacturer',
-                        manufacturer: { "$first" : "$manufacturer"},
-                        ESG: { "$first": "$ESG" }
+                        _id: '$company',
+                        Company: { "$first" : "$company"},
+                        sustainable: { "$first": "$sustainable" }
                         }},
-                        { $sort: { "ESG": -1 } },
+                        { $sort: { "sustainable": -1 } },
                         { $limit: 5 },
                         { $project : {
                         _id : 0
                         }}
                     ]);
-                    console.log(docs);
+                    // let docs = await db.models.Company.find();
+                    // console.log(docs);
                     return res.status(StatusCode.OK).send({docs});
                 } catch(err) {
                   console.error(err);
