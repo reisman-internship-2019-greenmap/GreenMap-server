@@ -189,14 +189,14 @@ let getTopManufacturers = async(req, res) => {
                     let docs = await db.models.Company.aggregate([
                         {$match: {
                         'category': category,
-                        "sustainable":{$ne:null}
+                        "greenscore":{$ne:null}
                         }},
                         {$group: {
                         _id: '$company',
                         Company: { "$first" : "$company"},
-                        sustainable: { "$first": "$sustainable" }
+                        sustainable: { "$first": "$greenscore" }
                         }},
-                        { $sort: { "sustainable": -1 } },
+                        { $sort: { "greenscore": -1 } },
                         { $limit: 5 },
                         { $project : {
                         _id : 0

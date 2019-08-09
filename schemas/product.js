@@ -22,28 +22,4 @@ let Product = mongoose.model("Product", {
   }
 });
 
-let Company = mongoose.model("Company", {
-  company: {
-    type: String,
-    required: true
-  },
-  alias: {
-    type: Array,
-    required: true 
-  },
-  category: {
-    type: Array,
-    required: true
-  },
-  greenscore: {
-    type: Number
-  },
-  dow: {
-    type: Number
-  },
-  sustainable: {
-    type: String
-  }
-})
-
-module.exports = {Product, Company};
+module.exports = {Product};

@@ -137,8 +137,8 @@ module.exports = {
     return new Promise(function(resolve, reject){   //Read a file, depending on which one it is we have a different format for reading.
       fs.readFile(file_path, "utf-8", function(err, data){
         try{
-          assert.equal(err, null)
-          data = data.split("\n")
+          assert.equal(err, null);
+          data = data.split(/\r\n|\n|\r/);
           resolve(data);
         }
         catch(err){
@@ -242,6 +242,15 @@ module.exports = {
     });
   },
 
+  /*
+    This function retrieves a document from the provided collection that contains a matching {field : key} entry.
+
+    (Note: key can be quite complex; for example, if we put { $all: ["term"] }, then it would require that for whatever
+    field we are searching the corresponding array contains the "term" object.)
+
+
+  */
+
   mongo_collection_retrieve : function(collection, field, key, verbose){
     return new Promise(function(resolve, reject){
       collection.find({[field] : key}).toArray(function(err, docs){
@@ -264,6 +273,11 @@ module.exports = {
       });
     });
   },
+
+  /*
+    This function updates the document in the provided collection that contains a matching field {find_field : find_key} entry;
+    whichever document matches that, it then updates its field 'update_field' to have the value 'update_key'.
+  */
 
   mongo_collection_update_one : function(collection, find_field, find_key, update_field, update_key, verbose){
     return new Promise(function(resolve, reject){
