@@ -66,8 +66,8 @@ let getProduct = (req, res) => {
                 });
                 if(companyDoc) {
                     console.log(`found company in wikidata`);
-                    if(companyDoc.sustainable != null) {
-                        greenScore = companyDoc.sustainable;
+                    if(companyDoc.greenscore != null) {
+                        greenScore = companyDoc.greenScore;
                     }
                 }          
             }

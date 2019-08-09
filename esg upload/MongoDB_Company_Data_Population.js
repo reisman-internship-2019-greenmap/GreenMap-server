@@ -96,8 +96,9 @@ Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){ 
     }
   }
   promises = []
+  num_companies = Object.keys(companies).length;
   console.log("Generating Promises: Alias URL")
-  for(i = 0; i < Object.keys(companies).length; i++){      //Make alias promises
+  for(i = 0; i < num_companies; i++){      //Make alias promises
     promises.push(query_support.get_url_company(alias_url, Object.keys(companies)[i]));  //Module method to get generic .json from url query
   }
 
@@ -121,8 +122,8 @@ Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){ 
     }
     promises = []
     console.log("Generating Promises: Greenscore URL")
-    for(i = 0; i < Object.keys(companies).length; i++){    //Make greenscore promises
-      promises.push(query_support.get_url_company(greenscore_url, Object.keys(companies)[i])); //Module method, get generic .json from a different url
+    for(i = 0; i < num_companies; i++){    //Make greenscore promises
+      promises.push(query_support.get_url_company(greenscore_url, Object.keys(companies)[i], false)); //Module method, get generic .json from a different url
     }
 
     Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){    //Query wikirates for company greenscores
@@ -130,8 +131,10 @@ Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){ 
       for(i = 0; i < values.length; i++){
         if(values[i] != null){
           try{
-            if(values[i].hasOwnProperty("items")){
-              companies[values[i].company].greenscore = values[i].items[0].value;   //Set the greenscore value we found from the url
+            if(values[i].body.hasOwnProperty("items")){
+              if(values[i].body.items.length > 0){
+                companies[values[i].company].greenscore = values[i].body.items[0].value;   //Set the greenscore value we found from the url
+              }
             }
           }
           catch(err){
@@ -140,12 +143,56 @@ Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){ 
         }
       }
 
+      console.log("Merging Generated Entries");
+
+      console.log(Object.keys(companies).length);
+
+      for(i = 0; i < num_companies; i++){
+        if(i >= Object.keys(companies).length){
+          break;
+        }
+        var curr = companies[Object.keys(companies)[i]];
+        if(curr == undefined){
+          continue;
+        }
+        for(j = 0; j < curr.alias.length; j++){
+          var next = companies[curr.alias[j]];
+          if(next == undefined || curr.company == next.company){
+            continue;
+          }
+          if(next != null && next != undefined){
+            curr.alias.push(next.company);
+            var k;
+            for(k = 0; k < next.alias.length; k++){
+              curr.alias.push(next.alias[k]);
+            }
+            for(k = 0; k < next.category.length; k++){
+              curr.category.push(next.category[k]);
+            }
+            if(curr.greenscore == "?"){
+              curr.greenscore = next.greenscore;
+            }
+            if(curr.dow == "?"){
+              curr.dow = next.dow;
+            }
+            if(curr.sustainable == "?"){
+              curr.sustainable = next.sustainable;
+            }
+            companies[next.company] = undefined;
+          }
+        }
+      }
+
+      console.log(Object.keys(companies).length);
+
+      console.log("Finished Merging Entries");
+
       const username = "patsy";                                 //Relevant information to access our MongoDB collection
       const password = "patsy";                                 //Change this information for uploading to a different database
       const context = "greenmap";
       const database_name = "test";
       // const url = "mongodb+srv://" + username + ":" + password + "@" + context + "-crohe.gcp.mongodb.net/test?retryWrites=true"
-      const url = 'mongodb://localhost:27017'
+      const url = "mongodb+srv://NimeshNayaju:Wikidata@cluster0-koyae.mongodb.net/test?retryWrites=true&w=majority"
       const collection_name = 'companies';
 
       MongoClient.connect(url, {useNewUrlParser: true}, function(err, client){    //Establish connection to the database
@@ -155,8 +202,10 @@ Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){ 
 
         promises = []
         console.log("Generating Promises: MongoDB Insert")
-        for(i = 0; i < Object.keys(companies).length; i++){                       //Generate promises for inserting to our collection using the query_support module
-          promises.push(query_support.mongo_collection_insert_one(collection, companies[Object.keys(companies)[i]], false));
+        for(i = 0; i < num_companies; i++){                       //Generate promises for inserting to our collection using the query_support module
+          if(companies[Object.keys(companies)[i]] != undefined){
+            promises.push(query_support.mongo_collection_insert_one(collection, companies[Object.keys(companies)[i]], false));
+          }
         }
 
         Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){            //After all promises resolved, close MongoDB connection and end
@@ -168,3 +217,6 @@ Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){ 
     });
   });
 });
+
+// const url = "mongodb+srv://NimeshNayaju:Wikidata@cluster0-koyae.mongodb.net/test?retryWrites=true&w=majority"
+// const url = 'mongodb://localhost:27017/?retryWrites=true'
