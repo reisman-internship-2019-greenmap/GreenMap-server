@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 let Company = mongoose.model("Company", {
     company: {
       type: String,
