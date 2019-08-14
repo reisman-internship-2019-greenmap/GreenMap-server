@@ -167,135 +167,6 @@ let addProductByLookup = async(req, res) => {
  * @param req request 
  * @param res  response
  */
-
-// let getTopManufacturers = async(req, res) => {
-//     connectDb().then(async (db) => {
-//         if(!req.params.id) {
-//             return res.status(StatusCode.PRECONDITION_FAILED).send();
-//         }      
-//         let barcode = req.params.id;
-//         try {
-//             let doc = await models.Product.findOne({ barcode });
-//             console.log(`found ${doc.barcode} in mongodb`);
-                    
-//             if(doc.category.length == 0) {
-//                 console.error(`category not found for ${doc.name} in product object, so querying via manufacturer`);
-                
-//                 if(!doc.manufacturer) {
-//                     console.error(`manufacturer not found for ${doc.name}`)
-//                     return res.status(StatusCode.NOT_FOUND).send();
-//                 }
-
-//                 try {
-//                     let companyDoc = await models.Company.findOne({alias: 
-//                         { $regex: new RegExp("^" + doc.manufacturer.toLowerCase() + "$", "i") }
-//                     });
-//                     console.log(`found ${doc.manufacturer} in wikidata`);
-//                     if(companyDoc.category.length == 0) {
-//                         console.log(`no category found inside of ${doc.manufacturer} in wikidata`)
-//                         return res.status(StatusCode.NOT_FOUND).send();
-//                     }
-
-//                     let category = companyDoc.category[0];
-//                     try {
-//                         let docs = await db.models.Company.aggregate([
-//                             {$match: {
-//                                 'category': category,
-//                                 "greenscore":{$ne:null}
-//                             }},
-//                             {$group: {
-//                                 _id: '$company',
-//                                 Company: { "$first" : "$company"},
-//                                 greenscore: { "$first": "$greenscore" }
-//                             }},
-//                             { $sort: { "greenscore": -1 } },
-//                             { $limit: 5 },
-//                             { $project : {
-//                             _id : 0
-//                             }}
-//                         ]);
-//                         return res.status(StatusCode.OK).send({docs});
-//                     } catch(err) {
-//                         return res.status(StatusCode.BAD_REQUEST).send(err);
-//                     }
-
-//                 } catch(err) {
-//                     console.log(`couldn't find the ${doc.manufacturer} in wikidata`);
-//                     return res.status(StatusCode.NOT_FOUND).send(err);
-//                 }
-//             }   
-
-//             // if category field is found inside of the product object
-//             let category = doc.category[doc.category.length - 1];
-//             let docs = await db.models.Company.aggregate([
-//                 {$match: {
-//                     'category': category,
-//                     "greenscore":{$ne:null}
-//                 }},
-//                 {$group: {
-//                     _id: '$company',
-//                     Company: { "$first" : "$company"},
-//                     greenscore: { "$first": "$greenscore" }
-//                 }},
-//                 { $sort: { "greenscore": -1 } },
-//                 { $limit: 5 },
-//                 { $project : {
-//                 _id : 0
-//                 }}
-//             ]);
-//             if(docs.length > 0) {
-//                 return res.status(StatusCode.OK).send({docs});
-//             }
-//             console.log(`could'nt match the category, so querying via manufacturer`);
-//             try {
-//                 let companyDoc = await models.Company.findOne({alias: 
-//                     { $regex: new RegExp("^" + doc.manufacturer.toLowerCase() + "$", "i") }
-//                 });
-//                 console.log(`found ${doc.manufacturer} in wikidata`);
-//                 if(companyDoc.category.length == 0) {
-//                     console.log(`no category found inside of ${doc.manufacturer} in wikidata`)
-//                     return res.status(StatusCode.NOT_FOUND).send();
-//                 }
-
-//                 let category = companyDoc.category[0];
-//                 try {
-//                     let docs = await db.models.Company.aggregate([
-//                         {$match: {
-//                             'category': category,
-//                             "greenscore":{$ne:null}
-//                         }},
-//                         {$group: {
-//                             _id: '$company',
-//                             Company: { "$first" : "$company"},
-//                             greenscore: { "$first": "$greenscore" }
-//                         }},
-//                         { $sort: { "greenscore": -1 } },
-//                         { $limit: 5 },
-//                         { $project : {
-//                         _id : 0
-//                         }}
-//                     ]);
-//                     return res.status(StatusCode.OK).send({docs});
-//                 } catch(err) {
-//                     console.log(`couldn't find the ${doc.manufacturer} in wikidata`);
-//                     return res.status(StatusCode.BAD_REQUEST).send(err);
-//                 }
-
-//             } catch(err) {
-//                 console.log(`couldn't find the ${doc.manufacturer} in wikidata`);
-//                 return res.status(StatusCode.NOT_FOUND).send(err);
-//             }  
-
-//         } catch(err) {
-//             console.error(`barcode ${barcode} not found in the mongodb`);
-//             return res.status(StatusCode.NOT_FOUND).send(err);
-//         }
-//     }).catch((err) => {
-//         console.error(err);
-//         return res.status(StatusCode.INTERNAL_SERVER_ERROR).send(err);
-//     });
-// };
-
 let getTopManufacturers = async(req, res) => {
     connectDb().then(async (db) => {
         if(!req.params.id) {
@@ -311,7 +182,7 @@ let getTopManufacturers = async(req, res) => {
                 category = doc.category[i];
                 let docs = await db.models.Company.aggregate([
                     {$match: {
-                        'category': category,
+                        'category': { $regex: new RegExp("^" + category.toLowerCase() + "$", "i") },
                         "greenscore":{$ne:null}
                     }},
                     {$group: {
