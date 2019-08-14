@@ -167,6 +167,7 @@ let addProductByLookup = async(req, res) => {
  * @param req request 
  * @param res  response
  */
+
 // let getTopManufacturers = async(req, res) => {
 //     connectDb().then(async (db) => {
 //         if(!req.params.id) {
@@ -175,25 +176,98 @@ let addProductByLookup = async(req, res) => {
 //         let barcode = req.params.id;
 //         try {
 //             let doc = await models.Product.findOne({ barcode });
-//             if(doc) {
-//                 console.log(`found ${doc.barcode} in mongodb`);
-//                 if(!doc.category) {
-//                     console.error(`category not found for ${doc.name}`)
+//             console.log(`found ${doc.barcode} in mongodb`);
+                    
+//             if(doc.category.length == 0) {
+//                 console.error(`category not found for ${doc.name} in product object, so querying via manufacturer`);
+                
+//                 if(!doc.manufacturer) {
+//                     console.error(`manufacturer not found for ${doc.name}`)
 //                     return res.status(StatusCode.NOT_FOUND).send();
 //                 }
 
-//                 let category = doc.category[doc.category.length - 1];
-//                 // Query to return similary category of Product
+//                 try {
+//                     let companyDoc = await models.Company.findOne({alias: 
+//                         { $regex: new RegExp("^" + doc.manufacturer.toLowerCase() + "$", "i") }
+//                     });
+//                     console.log(`found ${doc.manufacturer} in wikidata`);
+//                     if(companyDoc.category.length == 0) {
+//                         console.log(`no category found inside of ${doc.manufacturer} in wikidata`)
+//                         return res.status(StatusCode.NOT_FOUND).send();
+//                     }
+
+//                     let category = companyDoc.category[0];
+//                     try {
+//                         let docs = await db.models.Company.aggregate([
+//                             {$match: {
+//                                 'category': category,
+//                                 "greenscore":{$ne:null}
+//                             }},
+//                             {$group: {
+//                                 _id: '$company',
+//                                 Company: { "$first" : "$company"},
+//                                 greenscore: { "$first": "$greenscore" }
+//                             }},
+//                             { $sort: { "greenscore": -1 } },
+//                             { $limit: 5 },
+//                             { $project : {
+//                             _id : 0
+//                             }}
+//                         ]);
+//                         return res.status(StatusCode.OK).send({docs});
+//                     } catch(err) {
+//                         return res.status(StatusCode.BAD_REQUEST).send(err);
+//                     }
+
+//                 } catch(err) {
+//                     console.log(`couldn't find the ${doc.manufacturer} in wikidata`);
+//                     return res.status(StatusCode.NOT_FOUND).send(err);
+//                 }
+//             }   
+
+//             // if category field is found inside of the product object
+//             let category = doc.category[doc.category.length - 1];
+//             let docs = await db.models.Company.aggregate([
+//                 {$match: {
+//                     'category': category,
+//                     "greenscore":{$ne:null}
+//                 }},
+//                 {$group: {
+//                     _id: '$company',
+//                     Company: { "$first" : "$company"},
+//                     greenscore: { "$first": "$greenscore" }
+//                 }},
+//                 { $sort: { "greenscore": -1 } },
+//                 { $limit: 5 },
+//                 { $project : {
+//                 _id : 0
+//                 }}
+//             ]);
+//             if(docs.length > 0) {
+//                 return res.status(StatusCode.OK).send({docs});
+//             }
+//             console.log(`could'nt match the category, so querying via manufacturer`);
+//             try {
+//                 let companyDoc = await models.Company.findOne({alias: 
+//                     { $regex: new RegExp("^" + doc.manufacturer.toLowerCase() + "$", "i") }
+//                 });
+//                 console.log(`found ${doc.manufacturer} in wikidata`);
+//                 if(companyDoc.category.length == 0) {
+//                     console.log(`no category found inside of ${doc.manufacturer} in wikidata`)
+//                     return res.status(StatusCode.NOT_FOUND).send();
+//                 }
+
+//                 let category = companyDoc.category[0];
 //                 try {
 //                     let docs = await db.models.Company.aggregate([
 //                         {$match: {
-//                         'category': category,
-//                         "greenscore":{$ne:null}
+//                             'category': category,
+//                             "greenscore":{$ne:null}
 //                         }},
 //                         {$group: {
-//                         _id: '$company',
-//                         Company: { "$first" : "$company"},
-//                         sustainable: { "$first": "$greenscore" }
+//                             _id: '$company',
+//                             Company: { "$first" : "$company"},
+//                             greenscore: { "$first": "$greenscore" }
 //                         }},
 //                         { $sort: { "greenscore": -1 } },
 //                         { $limit: 5 },
@@ -201,21 +275,20 @@ let addProductByLookup = async(req, res) => {
 //                         _id : 0
 //                         }}
 //                     ]);
-//                     // let docs = await db.models.Company.find();
-//                     // console.log(docs);
 //                     return res.status(StatusCode.OK).send({docs});
 //                 } catch(err) {
-//                   console.error(err);
-//                   return res.status(StatusCode.BAD_REQUEST).send(err);
+//                     console.log(`couldn't find the ${doc.manufacturer} in wikidata`);
+//                     return res.status(StatusCode.BAD_REQUEST).send(err);
 //                 }
-//             }
 
-//             console.error(`barcode ${barcode} not found in the mongodb`);
-//             return res.status(StatusCode.NOT_FOUND).send();
-            
+//             } catch(err) {
+//                 console.log(`couldn't find the ${doc.manufacturer} in wikidata`);
+//                 return res.status(StatusCode.NOT_FOUND).send(err);
+//             }  
+
 //         } catch(err) {
-//             console.error(err);
-//             return res.status(StatusCode.BAD_REQUEST).send(err);
+//             console.error(`barcode ${barcode} not found in the mongodb`);
+//             return res.status(StatusCode.NOT_FOUND).send(err);
 //         }
 //     }).catch((err) => {
 //         console.error(err);
@@ -232,115 +305,35 @@ let getTopManufacturers = async(req, res) => {
         try {
             let doc = await models.Product.findOne({ barcode });
             console.log(`found ${doc.barcode} in mongodb`);
-                    
-            if(doc.category.length == 0) {
-                console.error(`category not found for ${doc.name} in product object, so querying via manufacturer`);
-                
-                if(!doc.manufacturer) {
-                    console.error(`manufacturer not found for ${doc.name}`)
-                    return res.status(StatusCode.NOT_FOUND).send();
-                }
+            let found = false;
 
-                try {
-                    let companyDoc = await models.Company.findOne({alias: 
-                        { $regex: new RegExp("^" + doc.manufacturer.toLowerCase() + "$", "i") }
-                    });
-                    console.log(`found ${doc.manufacturer} in wikidata`);
-                    if(companyDoc.category.length == 0) {
-                        console.log(`no category found inside of ${doc.manufacturer} in wikidata`)
-                        return res.status(StatusCode.NOT_FOUND).send();
-                    }
-
-                    let category = companyDoc.category[0];
-                    try {
-                        let docs = await db.models.Company.aggregate([
-                            {$match: {
-                                'category': category,
-                                "greenscore":{$ne:null}
-                            }},
-                            {$group: {
-                                _id: '$company',
-                                Company: { "$first" : "$company"},
-                                greenscore: { "$first": "$greenscore" }
-                            }},
-                            { $sort: { "greenscore": -1 } },
-                            { $limit: 5 },
-                            { $project : {
-                            _id : 0
-                            }}
-                        ]);
-                        return res.status(StatusCode.OK).send({docs});
-                    } catch(err) {
-                        return res.status(StatusCode.BAD_REQUEST).send(err);
-                    }
-
-                } catch(err) {
-                    console.log(`couldn't find the ${doc.manufacturer} in wikidata`);
-                    return res.status(StatusCode.NOT_FOUND).send(err);
-                }
-            }   
-
-            // if category field is found inside of the product object
-            let category = doc.category[doc.category.length - 1];
-            let docs = await db.models.Company.aggregate([
-                {$match: {
-                    'category': category,
-                    "greenscore":{$ne:null}
-                }},
-                {$group: {
-                    _id: '$company',
-                    Company: { "$first" : "$company"},
-                    greenscore: { "$first": "$greenscore" }
-                }},
-                { $sort: { "greenscore": -1 } },
-                { $limit: 5 },
-                { $project : {
-                _id : 0
-                }}
-            ]);
-            if(docs.length > 0) {
-                return res.status(StatusCode.OK).send({docs});
-            }
-            console.log(`could'nt match the category, so querying via manufacturer`);
-            try {
-                let companyDoc = await models.Company.findOne({alias: 
-                    { $regex: new RegExp("^" + doc.manufacturer.toLowerCase() + "$", "i") }
-                });
-                console.log(`found ${doc.manufacturer} in wikidata`);
-                if(companyDoc.category.length == 0) {
-                    console.log(`no category found inside of ${doc.manufacturer} in wikidata`)
-                    return res.status(StatusCode.NOT_FOUND).send();
-                }
-
-                let category = companyDoc.category[0];
-                try {
-                    let docs = await db.models.Company.aggregate([
-                        {$match: {
-                            'category': category,
-                            "greenscore":{$ne:null}
-                        }},
-                        {$group: {
-                            _id: '$company',
-                            Company: { "$first" : "$company"},
-                            greenscore: { "$first": "$greenscore" }
-                        }},
-                        { $sort: { "greenscore": -1 } },
-                        { $limit: 5 },
-                        { $project : {
+            for(let i = doc.category.length - 1; i >= 0; i--) {
+                category = doc.category[i];
+                let docs = await db.models.Company.aggregate([
+                    {$match: {
+                        'category': category,
+                        "greenscore":{$ne:null}
+                    }},
+                    {$group: {
+                        _id: '$company',
+                        Company: { "$first" : "$company"},
+                        greenscore: { "$first": "$greenscore" },
+                    }},
+                    { $sort: { "greenscore": -1 } },
+                    { $limit: 5 },
+                    { $project : {
                         _id : 0
-                        }}
-                    ]);
-                    return res.status(StatusCode.OK).send({docs});
-                } catch(err) {
-                    console.log(`couldn't find the ${doc.manufacturer} in wikidata`);
-                    return res.status(StatusCode.BAD_REQUEST).send(err);
+                    }}
+                ]);
+                if(docs.length > 0) {
+                    found = true;
+                    console.log(category);
+                    return res.status(StatusCode.OK).send({docs, category});
                 }
-
-            } catch(err) {
-                console.log(`couldn't find the ${doc.manufacturer} in wikidata`);
+            }
+            if(!found) {
                 return res.status(StatusCode.NOT_FOUND).send(err);
-            }  
-
+            }
         } catch(err) {
             console.error(`barcode ${barcode} not found in the mongodb`);
             return res.status(StatusCode.NOT_FOUND).send(err);
