@@ -4,7 +4,7 @@ const { StatusCode } = require('../shared/constants');
 
 const { insertProduct } = require('../utils/controller');
 const { datafinitilookup } = require('../utils/datafiniti');
-
+const { aliasesLookup, greenScoreLookup } = require('../utils/wikirates');
 /**
  * Simple ping endpoint.
  * @param req request.
@@ -39,6 +39,7 @@ let getProduct = (req, res) => {
         try {
             // search for product in MongoDB
             let doc = await models.Product.findOne({barcode});
+            let greenScore = null;
             if (doc) {
                 console.log(`found ${doc.barcode} in mongodb`);
                 return res.status(StatusCode.OK).send({doc});
@@ -46,9 +47,10 @@ let getProduct = (req, res) => {
 
             // else query datafiniti for product
             let datafinitiRes = await datafinitilookup({api_key: process.env.API_TOKEN, barcode: barcode});
+
             if(datafinitiRes.status != StatusCode.OK) {
                 console.error(`error looking up ${barcode} in datafiniti`);
-                return res.status(bclRes.statusCode).send({ data: bclRes.data });
+                return res.status(datafinitiRes.statusCode).send({ data: datafinitiRes.data });
             }
 
             if(datafinitiRes.body.num_found == 0) {
