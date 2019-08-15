@@ -35,6 +35,7 @@ let getProduct = (req, res) => {
             return res.status(StatusCode.PRECONDITION_FAILED).send(null);
         // else
         let barcode = req.params.id;
+        let greenScore = null;
         try {
             // search for product in MongoDB
             let doc = await models.Product.findOne({barcode});
@@ -60,9 +61,17 @@ let getProduct = (req, res) => {
             if(!('brand' in datafinitiRes.body.records[0]) && !('manufacturer' in datafinitiRes.body.records[0])) {
                 console.error(`couldn't find a manufacturer for ${barcode}`);
             } else {
-                let aliases = await aliasesLookup({manufacturer: (datafinitiRes.body.records[0].manufacturer || datafinitiRes.body.records[0].brand)});
-                let greenScoreRes = await greenScoreLookup({aliases: aliases.body});
-                greenScore = greenScoreRes.body;            
+                let companyName = (datafinitiRes.body.records[0].manufacturer || datafinitiRes.body.records[0].brand);
+                let companyDoc = await models.Company.findOne({alias: 
+                    { $regex: new RegExp("^" + companyName.toLowerCase() + "$", "i") }
+                    // (datafinitiRes.body.records[0].manufacturer || datafinitiRes.body.records[0].brand).toLowerCase()}
+                });
+                if(companyDoc) {
+                    console.log(`found ${companyName} in wikidata`);
+                    if(companyDoc.greenscore != null) {
+                        greenScore = companyDoc.greenscore;
+                    }
+                }          
             }
 
             insertProduct(datafinitiRes.body.records[0], barcode, res, greenScore);
@@ -116,6 +125,7 @@ let addProductByLookup = async(req, res) => {
             return res.status(StatusCode.PRECONDITION_FAILED).send(null);
         // else
         let barcode = req.body.barcode;
+        let greenScore = null;
         let doc = await models.Product.findOne({ barcode });
         if (doc) {
             console.error(`product ${req.body.barcode} already exists in database`);
@@ -135,9 +145,21 @@ let addProductByLookup = async(req, res) => {
 
         if(!('brand' in datafinitiRes.body.records[0]) && !('manufacturer' in datafinitiRes.body.records[0])) {
             console.error(`couldn't find a manufacturer for ${barcode}`);
+        } else {
+            let companyName = (datafinitiRes.body.records[0].manufacturer || datafinitiRes.body.records[0].brand);
+            let companyDoc = await models.Company.findOne({alias: 
+                { $regex: new RegExp("^" + companyName.toLowerCase() + "$", "i") }
+                // (datafinitiRes.body.records[0].manufacturer || datafinitiRes.body.records[0].brand).toLowerCase()}
+            });
+            if(companyDoc) {
+                console.log(`found company in wikidata`);
+                if(companyDoc.sustainable != null) {
+                    greenScore = companyDoc.sustainable;
+                }
+            }          
         }
 
-        insertProduct(datafinitiRes.body.records[0], barcode, res);
+        insertProduct(datafinitiRes.body.records[0], barcode, res, greenScore);
     });
 };
 
@@ -148,54 +170,46 @@ let addProductByLookup = async(req, res) => {
  * @param res  response
  */
 let getTopManufacturers = async(req, res) => {
-    connectDb().then(async () => {
+    connectDb().then(async (db) => {
         if(!req.params.id) {
             return res.status(StatusCode.PRECONDITION_FAILED).send();
         }      
         let barcode = req.params.id;
         try {
             let doc = await models.Product.findOne({ barcode });
-            if(doc) {
-                console.log(`found ${doc.barcode} in mongodb`);
-                if(!doc.category) {
-                    console.error(`category not found for ${doc.name}`)
-                    return res.status(StatusCode.NOT_FOUND).send();
-                }
+            console.log(`found ${doc.barcode} in mongodb`);
+            let found = false;
 
-                let category = doc.category[doc.category.length - 1];
-
-                // Query to return similary category of Product
-                try {
-                    let docs = await models.Product.aggregate([
-                        {$match: {
-                        'category': category,
-                        "ESG":{$ne:null}
-                        }},
-                        {$group: {
-                        _id: '$manufacturer',
-                        manufacturer: { "$first" : "$manufacturer"},
-                        ESG: { "$first": "$ESG" }
-                        }},
-                        { $sort: { "ESG": -1 } },
-                        { $limit: 5 },
-                        { $project : {
+            for(let i = doc.category.length - 1; i >= 0; i--) {
+                category = doc.category[i];
+                let docs = await db.models.Company.aggregate([
+                    {$match: {
+                        'category': { $regex: new RegExp("^" + category.toLowerCase() + "$", "i") },
+                        "greenscore":{$ne:null}
+                    }},
+                    {$group: {
+                        _id: '$company',
+                        Company: { "$first" : "$company"},
+                        greenscore: { "$first": "$greenscore" },
+                    }},
+                    { $sort: { "greenscore": -1 } },
+                    { $limit: 5 },
+                    { $project : {
                         _id : 0
-                        }}
-                    ]);
-                    console.log(docs);
-                    return res.status(StatusCode.OK).send({docs});
-                } catch(err) {
-                  console.error(err);
-                  return res.status(StatusCode.BAD_REQUEST).send(err);
+                    }}
+                ]);
+                if(docs.length > 0) {
+                    found = true;
+                    console.log(category);
+                    return res.status(StatusCode.OK).send({docs, category});
                 }
             }
-
-            console.error(`barcode ${barcode} not found in the mongodb`);
-            return res.status(StatusCode.NOT_FOUND).send();
-            
+            if(!found) {
+                return res.status(StatusCode.NOT_FOUND).send(err);
+            }
         } catch(err) {
-            console.error(err);
-            return res.status(StatusCode.BAD_REQUEST).send(err);
+            console.error(`barcode ${barcode} not found in the mongodb`);
+            return res.status(StatusCode.NOT_FOUND).send(err);
         }
     }).catch((err) => {
         console.error(err);

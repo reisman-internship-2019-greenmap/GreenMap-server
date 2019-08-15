@@ -1,0 +1,400 @@
+Dassault Systemes
+France
+Software
+86.10%
+Neste
+Finland
+Oil, Gas & Consumable Fuels
+85.20%
+Valeo
+France
+Auto Components
+83.60%
+Ucb
+Belgium
+Pharmaceuticals
+79.50%
+Outotec
+Finland
+Construction & Engineering
+78.30%
+Amundi
+France
+Capital Markets
+77.80%
+Cisco Systems
+United States
+Communications Equipment
+77.00%
+Autodesk
+United States
+Software
+76.90%
+Siemens
+Germany
+Industrial Conglomerates
+76.70%
+Samsung SDI
+South Korea
+Electronic Equipment, Instruments & Components
+75.80%
+Aareal Bank
+Germany
+Thrifts & Mortgage Finance
+75.40%
+Enbridge
+Canada
+Oil, Gas & Consumable Fuels
+74.90%
+Merck
+United States
+Pharmaceuticals
+74.30%
+Natura Cosmeticos
+Brazil
+Personal Products
+74.10%
+Pearson
+United Kingdom
+Media
+73.90%
+Amadeus IT Group
+Spain
+IT Services
+73.20%
+Bayerische Motoren Werke
+Germany
+Automobiles
+73.20%
+Companhia Energetica de Minas Gerais CEMIG
+Brazil
+Electric Utilities
+73.00%
+Koninklijke Philips
+Netherlands
+Industrial Conglomerates
+72.50%
+Allergan
+United States
+Pharmaceuticals
+72.20%
+Honda Motor Co
+Japan
+Automobiles
+71.90%
+Sanofi SA
+France
+Pharmaceuticals
+71.90%
+McCormick
+United States
+Food Products
+71.50%
+Commonwealth Bank of Australia
+Australia
+Banks
+71.50%
+Vivendi
+France
+Media
+71.10%
+Intel
+United States
+Semiconductors & Semiconductor Equipment
+71.10%
+Itron
+United States
+Electronic Equipment, Instruments & Components
+71.10%
+Telefonaktiebolaget LM Ericsson
+Sweden
+Communications Equipment
+70.80%
+Halma
+United Kingdom
+Electronic Equipment, Instruments & Components
+70.70%
+Deutsche Borse
+Germany
+Capital Markets
+70.60%
+Kesko
+Finland
+Food & Staples Retailing
+70.20%
+Television Francaise 1
+France
+Media
+69.90%
+bioMerieux
+France
+Health Care Equipment & Supplies
+69.80%
+AstraZeneca
+United Kingdom
+Pharmaceuticals
+69.70%
+Nokia
+Finland
+Communications Equipment
+69.60%
+BNP Paribas
+France
+Banks
+69.40%
+Eli Lilly
+United States
+Pharmaceuticals
+69.30%
+Storebrand
+Norway
+Insurance
+68.80%
+ABB
+Switzerland
+Electrical Equipment
+68.10%
+Svenska Cellulosa Aktiebolaget *
+Sweden
+Household Products
+68.00%
+Intesa Sanpaolo
+Italy
+Banks
+68.00%
+Analog Devices
+United States
+Semiconductors & Semiconductor Equipment
+67.60%
+Applied Materials
+United States
+Semiconductors & Semiconductor Equipment
+67.40%
+Takeda Pharmaceutical
+Japan
+Pharmaceuticals
+67.40%
+Schneider Electric
+France
+Electrical Equipment
+67.00%
+Shinhan Financial Group
+South Korea
+Banks
+67.00%
+Kering
+France
+Textiles, Apparel & Luxury Goods
+66.80%
+Ingersoll-Rand
+United States
+Machinery
+66.70%
+Banco do Brasil
+Brazil
+Banks
+66.60%
+Nestle
+Switzerland
+Food Products
+66.60%
+Legrand
+France
+Electrical Equipment
+66.50%
+Engie Brasil Energia
+Brazil
+Independent Power & Renewable Electricity Prod.
+66.40%
+GlaxoSmithKline
+United Kingdom
+Pharmaceuticals
+66.30%
+ING Groep
+Netherlands
+Banks
+65.90%
+Sekisui Chemical
+Japan
+Household Durables
+65.60%
+Acciona
+Spain
+Electric Utilities
+65.60%
+H & M Hennes & Mauritz
+Sweden
+Specialty Retail
+65.10%
+Aberdeen Asset Management
+United Kingdom
+Capital Markets
+64.50%
+NVIDIA
+United States
+Semiconductors & Semiconductor Equipment
+64.40%
+Daimler
+Germany
+Automobiles
+64.20%
+Diageo
+United Kingdom
+Beverages
+64.20%
+BT Group
+United Kingdom
+Diversified Telecommunication Services
+64.00%
+Singapore Telecommunications
+Singapore
+Diversified Telecommunication Services
+63.70%
+Novartis
+Switzerland
+Pharmaceuticals
+63.70%
+Sandvik
+Sweden
+Machinery
+63.40%
+Chr. Hansen
+Denmark
+Chemicals
+63.30%
+Coca-Cola European Partners
+United Kingdom
+Beverages
+63.20%
+Nissan Motor Co
+Japan
+Automobiles
+63.10%
+Texas Instruments
+United States
+Semiconductors & Semiconductor Equipment
+63.00%
+Orsted
+Denmark
+Electric Utilities
+63.00%
+Allianz
+Germany
+Insurance
+62.70%
+Lenovo Group
+China
+Technology Hardware, Storage & Peripherals
+62.60%
+Telus
+Canada
+Diversified Telecommunication Services
+62.50%
+Taiwan Semiconductor Manufacturing
+Taiwan
+Semiconductors & Semiconductor Equipment
+62.30%
+MetLife
+United States
+Insurance
+62.00%
+Banco Santander Brasil
+Brazil
+Banks
+61.90%
+HP
+United States
+Technology Hardware, Storage & Peripherals
+61.80%
+Sun Life Financial
+Canada
+Insurance
+61.50%
+Hewlett Packard Enterprise
+United States
+Technology Hardware, Storage & Peripherals
+61.50%
+National Australia Bank
+Australia
+Banks
+61.30%
+General Electric
+United States
+Industrial Conglomerates
+60.90%
+Verbund
+Austria
+Electric Utilities
+60.90%
+Akzo Nobel
+Netherlands
+Chemicals
+60.70%
+L'Oreal
+France
+Personal Products
+60.70%
+AXA
+France
+Insurance
+60.60%
+Nordea Bank
+Sweden
+Banks
+60.50%
+Orkla
+Norway
+Food Products
+60.40%
+Wartsila
+Finland
+Machinery
+60.10%
+Canadian Imperial Bank of Commerce
+Canada
+Banks
+60.00%
+Renault
+France
+Automobiles
+59.70%
+Syngenta
+Switzerland
+Chemicals
+59.70%
+Johnson & Johnson
+United States
+Pharmaceuticals
+59.60%
+Posco
+South Korea
+Metals & Mining
+59.50%
+Suez
+France
+Multi-Utilities
+59.30%
+Umicore
+Belgium
+Chemicals
+59.20%
+Vestas Wind Systems
+Denmark
+Electrical Equipment
+58.30%
+SSE
+United Kingdom
+Electric Utilities
+56.80%
+CapitaLand
+Singapore
+Real Estate Management & Development
+55.10%
+Derwent London
+United Kingdom
+Equity Real Estate Investment Trusts (REITs)
+54.30%
+City Developments
+Singapore
+Real Estate Management & Development
+54.10%

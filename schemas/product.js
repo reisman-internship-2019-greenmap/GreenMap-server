@@ -18,8 +18,8 @@ let Product = mongoose.model("Product", {
     required: true
   },
   ESG: {
-    type: Number
+    type: String
   }
 });
 
-module.exports = Product;
+module.exports = {Product};

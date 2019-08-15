@@ -5,8 +5,6 @@ const { greenScoreLookup } = require('./wikirates');
 /**
  * Helper method to insert a Product into the collection
  */
-
-
 exports.insertProduct = function(body, barcode, res, greenScore) {
   let newProduct = new models.Product ({
     barcode: barcode,
