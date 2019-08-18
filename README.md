@@ -74,41 +74,6 @@ The Greenmap-Server has several endpoints for getting products and putting produ
        { barcode: '0886111601387' }
        ```
    
-* ### Add Product By Value
-
-    Returns a product stored in the Greenmap Database.
-    
-    * **URL**
-    
-      `/`
-    
-    * **Method:**
-    
-      `POST`
-      
-    *  **Body Params**
-    
-       **Required:**
-     
-       ```
-       { 
-          barcode: 'some barcode',
-          name: 'some name',
-          category: 'some category',
-          manufacturer: 'some manufacturer',
-          esg: 'some esg'
-       }
-       ... 
-       // e.g.
-       {
-           barcode: "0886111601387",
-           name: "HP 932XL Officejet Single Ink Cartridge - Black (CN053AN#14), Black (932xl)",
-           category: "Electronics > Print, Copy, Scan & Fax > Printer, Copier & Fax Machine Accessories > Printer Consumables > Toner & Inkjet Cartridges",
-           manufacturer: "Hp",
-           ESG: "0"
-       }
-       ```
-   
 **Response codes**
 ----        
 
