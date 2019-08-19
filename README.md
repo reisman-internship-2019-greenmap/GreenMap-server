@@ -74,7 +74,7 @@ The Greenmap-Server has several endpoints for getting products and putting produ
        { barcode: '0886111601387' }
        ```
 
-* ### Get Top five manufacturers
+* ### Get top five manufacturers
 
   Returns at most top five manufacturers of the same category of product
     
