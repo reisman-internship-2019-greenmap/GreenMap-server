@@ -82,9 +82,9 @@ for(i = 0; i < products.length; i++){
 }
 console.log("Completed SPARQL Queries");
 
-const username = "patsy";                                 //Relevant information to access our MongoDB collection
-const password = "patsy";                                 //Change this information for uploading to a different database
-const context = "greenmap";
+const username = "dummy";                                 //Relevant information to access our MongoDB collection
+const password = "dummy";                                 //Change this information for uploading to a different database
+const context = "dummy";
 const database_name = "sample_test";
 const url = "mongodb+srv://" + username + ":" + password + "@" + context + "-crohe.gcp.mongodb.net/test?retryWrites=true"
 const collection_name = 'esg';

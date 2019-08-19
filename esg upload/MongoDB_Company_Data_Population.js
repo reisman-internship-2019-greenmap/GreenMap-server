@@ -187,12 +187,11 @@ Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){ 
 
       console.log("Finished Merging Entries");
 
-      const username = "patsy";                                 //Relevant information to access our MongoDB collection
-      const password = "patsy";                                 //Change this information for uploading to a different database
-      const context = "greenmap";
-      const database_name = "test";
+      const username = "dummy";                                 //Relevant information to access our MongoDB collection
+      const password = "dummy";                                 //Change this information for uploading to a different database
+      const context = "dummy";
+      const database_name = "dummy";
       // const url = "mongodb+srv://" + username + ":" + password + "@" + context + "-crohe.gcp.mongodb.net/test?retryWrites=true"
-      const url = "mongodb+srv://NimeshNayaju:Wikidata@cluster0-koyae.mongodb.net/test?retryWrites=true&w=majority"
       const collection_name = 'companies';
 
       MongoClient.connect(url, {useNewUrlParser: true}, function(err, client){    //Establish connection to the database

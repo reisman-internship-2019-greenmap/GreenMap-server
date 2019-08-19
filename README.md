@@ -73,6 +73,29 @@ The Greenmap-Server has several endpoints for getting products and putting produ
        // e.g.
        { barcode: '0886111601387' }
        ```
+
+* ### Get Top five manufacturers
+
+  Returns at most top five manufacturers of the same category of product
+    
+    * **URL**
+    
+      `/products/:barcode`
+    
+    * **Method:**
+    
+      `GET`
+      
+    *  **URL Params**
+    
+       **Required:**
+     
+       ```
+       http://serverhost:port/products/somebarcode
+       ... 
+       // e.g.
+       http://localhost:3000/products/8152210266539
+       ```
    
 **Response codes**
 ----        
