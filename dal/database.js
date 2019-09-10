@@ -2,7 +2,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const {Product} = require('../schemas/product');
 const {Company} = require('../schemas/company');
-const uri = 'mongodb://localhost:27017/test' || '127.0.0.1';
+const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/test' || '127.0.0.1';
 
 const connectDb = (m) => {
     mongoose.set('useCreateIndex', true);
