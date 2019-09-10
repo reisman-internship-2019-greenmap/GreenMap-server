@@ -3807,7 +3807,7 @@ Hershey
 Ecolab
 Telecom Italia
 Airbus Group
-Dell Inc.
+Dell Inc
 Siemens AG
 Compass Group
 ANZ
@@ -3821,7 +3821,7 @@ Aflac
 UnitedHealth Group
 ING Group
 Mead Johnson Nutrition
-Apple Inc.
+Apple Inc
 MetLife
 Kone
 Keurig Green Mountain
@@ -3875,8 +3875,8 @@ Virgin America
 Boston Scientific
 Eaton
 Sands China Limited
-Autodesk, Inc.
-Goldman Sachs Group Inc.
+Autodesk, Inc
+Goldman Sachs Group Inc
 Consolidated Edison
 Lloyds Banking Group
 IHS Inc.
@@ -3887,7 +3887,7 @@ The Coca Cola Company
 Vivendi
 Hang Seng Bank
 Syngenta International AG
-Best Buy Co. Inc.
+Best Buy Co. Inc
 MS&AD Insurance
 Juniper Networks
 Louis Vuitton Malletier SA (LVMH)
@@ -3898,9 +3898,9 @@ SAIC Inc
 Volvo Group
 Randstad Holding
 TRW Automotive Holdings
-Henkel AG & Co. KGaA
+Henkel AG & Co
 Telenor
-Alcoa Inc.
+Alcoa Inc
 Nippon Telegraph and Telephone
 Komatsu
 National Australia Bank
@@ -3922,7 +3922,7 @@ CA Technologies
 Swedbank
 Invesco
 Compagnie Financiere Richemont SA
-General Mills Inc.
+General Mills Inc
 Inditex
 The Colgate-Palmolive Company
 SingTel
@@ -3935,7 +3935,7 @@ Kering
 Praxair
 Carrefour S.A.
 Monsanto Company
-KBR Inc.
+KBR Inc
 Pernod Ricard
 Michelin Group
 Sears Holdings
@@ -3967,7 +3967,7 @@ Sanofi
 Las Vegas Sands
 CVS Caremark
 Eni
-Kellogg Co.
+Kellogg Co
 Deutsche Telekom
 Exelon Corporation
 Grupo ACS
@@ -4034,7 +4034,7 @@ EI du Pont de Nemours
 SAP AG
 EMC
 Philip Morris International
-Health Net Inc.
+Health Net Inc
 Limited Brands
 Coventry Health Care Inc.
 Munich Re
@@ -4046,7 +4046,7 @@ Cielo
 Royal Bank of Canada
 Cardinal Health
 ABB
-Hitachi Ltd.
+Hitachi Ltd
 American Express
 United Continental Holdings
 Nissan Motor
@@ -4058,7 +4058,7 @@ Pall
 CSX
 LG Display
 Imperial Oil
-United Parcel Service Inc.
+United Parcel Service Inc
 East Japan Railway
 Liberty Global
 CRH
@@ -4069,7 +4069,7 @@ Bristol-Myers Squibb
 AES Corp.
 Wynn Resorts
 Alstom
-AT&T Inc.
+AT&T Inc
 Murata Manufacturing
 Spectra Energy
 Societe Generale
@@ -4088,7 +4088,7 @@ Prudential Financial
 Whirlpool
 Delhaize Group
 Crown Holdings
-Procter & Gamble Co.
+Procter & Gamble Co
 BBVA (Banco Bilbao Vizcaya Argentaria)
 Duke Energy
 Standard Chartered
@@ -4111,7 +4111,7 @@ Avery Dennison Corporation
 Agilent Technologies
 Air Liquide
 Toray Industries
-Verizon Communications Inc.
+Verizon Communications Inc
 E.ON SE
 Wal-Mart de Mexico
 Rio Tinto
@@ -4122,7 +4122,7 @@ Bidvest Group
 Union Pacific
 HSBC Holdings
 Mitsui Fudosan
-Community Health Systems Inc.
+Community Health Systems Inc
 Cooper Industries
 Volkswagen Aktiengesellschaft
 Staples
@@ -4141,7 +4141,7 @@ Allianz
 Svenska Handelsbanken
 Chunghwa Telecom
 Brink's
-Praxair, Inc.
+Praxair, Inc
 Western Union
 Chevron Corporation
 Expeditors Intl. of Washington
@@ -4149,7 +4149,7 @@ EMCOR Group
 Weatherford International
 Deutsche Post
 China Pacific Insurance
-Fossil Group, Inc.
+Fossil Group, Inc
 Deutsche Bank AG
 VINCI
 Hyundai Motor Company
@@ -4164,10 +4164,10 @@ Illinois Tool Works
 Dow Chemical
 Baosteel Group Corporation
 Kimco Realty
-PepsiCo Inc.
+PepsiCo Inc
 Canadian Imperial Bank
 Audi AG
-Canon Inc.
+Canon Inc
 Eli Lilly & Co
 Tata Steel Limited
 ArcelorMittal France
@@ -4187,12 +4187,12 @@ DNB
 Telephone and Data Systems Inc
 Hartford Financial Services
 Bank of Nova Scotia
-TE Connectivity Ltd.
+TE Connectivity Ltd
 Glencore International
 Medtronic
 CBRE Group
 AbbVie Inc.
-Twenty-First Century Fox, Inc.
+Twenty-First Century Fox, Inc
 Royal Dutch Shell plc
 SINOPEC Engineering (Group)
 Barclays
@@ -4216,7 +4216,7 @@ Anglo American
 Royal Bank of Scotland Group plc
 Samsung
 Metalurgica Gerdau
-Weight Watchers International Inc.
+Weight Watchers International Inc
 Enel
 Dick's Sporting Goods
 Perrigo
@@ -4225,7 +4225,7 @@ Principal Financial Group
 Dillard's, Inc.
 Metallurgical Corp of China
 Tokio Marine Holdings
-Whole Foods Market Inc.
+Whole Foods Market Inc
 ConocoPhillips
 Itochu
 Posco
@@ -4239,7 +4239,7 @@ Weyerhaeuser
 JFE Holdings
 Ashland
 Woolworths Holdings Limited
-Health Management Associates Inc.
+Health Management Associates Inc
 Celgene
 Nordea Bank
 Caseys General Stores Inc
@@ -4265,7 +4265,7 @@ SSE
 F5 Networks
 McDonald's Corporation
 Nippon Steel Trading
-Illumina, Inc.
+Illumina, Inc
 America Movil
 Simon Property Group
 Terex Corporation
@@ -4276,7 +4276,7 @@ Citigroup Inc.
 Bank Audi
 Flowserve
 Manulife Financial
-Tiffany & Co.
+Tiffany & Co
 Nabors Industries
 Transocean
 ACE
@@ -4295,7 +4295,7 @@ Chubb
 Chubb Corp (US)
 Aon
 MTN Group
-Anthem Inc.
+Anthem Inc
 Leggett & Platt
 CenturyLink
 Mosaic
@@ -4316,7 +4316,7 @@ Cigna
 Level 3 Communications
 United Rentals
 Mizuho Financial
-Estee Lauder Companies Inc.
+Estee Lauder Companies Inc
 Xcel Energy
 Sumitomo Mitsui Financial
 RWE Group
@@ -4332,7 +4332,7 @@ NRG Energy
 Textron
 Cliffs Natural Resources
 News Corp
-Wal-Mart Stores, Inc.
+Wal-Mart Stores, Inc
 ConAgra Foods
 Xilinx
 Vornado Realty
@@ -4385,9 +4385,9 @@ Visa
 International Paper
 Rolls-Royce Holdings
 Texas Instruments
-Gap inc.
-Corning Inc.
-Yum! Brands, Inc.
+Gap inc
+Corning Inc
+Yum! Brands, Inc
 Kimberly-Clark Corporation
 ARM Holdings
 Stryker
@@ -4417,7 +4417,7 @@ Safran
 LafargeHolcim
 Korea Electric Power
 PVH
-Starwood Hotels and Resorts Worldwide, Inc.
+Starwood Hotels and Resorts Worldwide, Inc
 The Walt Disney Company
 Aetna
 Edwards Lifesciences
@@ -4433,21 +4433,21 @@ American Electric
 JM Smucker
 Apache
 KDDI
-PACCAR Inc.
+PACCAR Inc
 Tesco PLC
 Eastman Chemical
 Essilor International
-Intuit Inc.
-Ralcorp Holdings Inc.
+Intuit Inc
+Ralcorp Holdings Inc
 Walgreens Boots Alliance Inc
 American Airlines
 Softbank
 Fresenius
 Devon Energy
-Time Warner Inc.
+Time Warner Inc
 BlackRock
 Fast Retailing
-Workday, Inc.
+Workday, Inc
 Republic Services
 American International Group
 L Brands
@@ -4491,21 +4491,21 @@ Costco Wholesale
 Nippon Steel & Sumitomo Metal
 Hindustan Unilever Limited
 Mallinckrodt Public Limited Company
-Skyworks Solutions, Inc.
+Skyworks Solutions, Inc
 Shanghai Pudong Development
 Zimmer Holdings
-Safeway Inc.
+Safeway Inc
 Sysco
 Cincinnati Financial
 Marathon Oil
 M&T Bank
-Equinix Inc.
+Equinix Inc
 Sun Hung Kai Properties
 State Street
 Yahoo Japan Corp
 CRRC Corporation Limited
 Express Scripts
-Palo Alto Networks, Inc.
+Palo Alto Networks, Inc
 Industrial & Commercial Bank of China
 Novatek
 Alliance Data Systems
@@ -4519,11 +4519,11 @@ Femsa
 Investor
 Mohawk Industries
 China Construction Bank
-PPL Corp.
+PPL Corp
 Kweichow Moutai
 Noble Energy
 Sun Pharmaceutical Industries Limited
-T-Mobile USA, Inc.
+T-Mobile USA, Inc
 CH Robinson Worldwide
 Baidu
 Potash of Saskatchewan
@@ -4580,14 +4580,14 @@ HollyFrontier
 PetroChina Company Limited
 Range Resources
 Mitsui & Co
-Ally Financial Inc.
+Ally Financial Inc
 FMC
 Ralph Lauren Corporation
 Citrix Systems
 VMware
 Catamaran
 Digital Realty Trust Inc
-Essex Property Trust Inc.
+Essex Property Trust Inc
 Zoetis
 Cerner
 HCA Holdings
@@ -4600,7 +4600,7 @@ Tencent Holdings
 Kansas City Southern
 Federal Realty Investment Trust
 Sberbank of Russia
-Norwegian Cruise Line Holdings Ltd.
+Norwegian Cruise Line Holdings Ltd
 China Overseas Land & Investment
 Reliance Industries Limited
 Federal Home Loan Mortgage
@@ -4616,10 +4616,10 @@ Fanuc
 China Railway Group
 Gilead Sciences
 Alexion Pharmaceuticals
-ServiceNow Inc.
+ServiceNow Inc
 Vertex Pharmaceuticals
 China State Construction Engineering Corporation Limited
-Pharmacyclics Inc.
+Pharmacyclics Inc
 Regeneron Pharmaceuticals
 Porsche Automobil Holding
 FirstEnergy
@@ -4704,7 +4704,7 @@ Ametek
 Amphenol Corporation
 Keyence
 Precision Castparts
-The Priceline Group Inc.
+The Priceline Group Inc
 TripAdvisor
 Jardine Matheson
 Hutchison Whampoa
@@ -4724,7 +4724,9 @@ Swatch Group
 Alibaba Group Holding Limited
 CR Bard
 JD.com Inc
-Amazon.com, Inc.
+Amazon.com 
+Amazon
+Amazon.Inc
 National Oilwell Varco
 Polaris Industries
 Leucadia National
@@ -4733,7 +4735,7 @@ Dangote Cement
 Prada
 Ross Stores
 Coty Inc
-Lowe's Companies, Inc.
+Lowe's Companies, Inc
 Citizens Financial Group Inc
 Access Midstream Partners
 Williams Cos
@@ -4741,7 +4743,7 @@ Lowe's Cos
 CF Industries Holdings
 Guotai Junan Securities Co
 Dollar General
-Bed Bath & Beyond Inc.
+Bed Bath & Beyond Inc
 Agricultural Bank of China
 Power Financial
 Fastenal
@@ -4802,7 +4804,7 @@ Enterprise Products Partners
 Kinder Morgan
 Annaly Capital Management
 MarkWest Energy Partners L.P.
-The Williams Companies Inc.
+The Williams Companies Inc
 Plains GP Holdings L.P.
 Plains All American Pipeline
 Magellan Midstream Partners L.P.
@@ -4811,7 +4813,7 @@ Buckeye Partners L.P.
 General Dynamics
 Icahn Enterprises
 Burger King Worldwide
-Endo Health Solutions Inc.
+Endo Health Solutions Inc
 FMC Technologies
 Cameron International
 Pioneer Natural Resources
@@ -4820,7 +4822,7 @@ Antero Resources
 Cheniere Energy
 Concho Resources
 Cimarex Energy
-NetSuite Inc.
+NetSuite Inc
 Linn Energy
 Sumitomo Realty
 PulteGroup
@@ -4831,6 +4833,8 @@ Forest Laboratories
 Oaktree Capital Management
 Airgas
 LKQ
-Diamond Offshore Drilling Inc.
-ANSYS Inc.
+Diamond Offshore Drilling Inc
+ANSYS Inc
 Towers Watson & Co
+
+
