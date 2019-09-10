@@ -67,10 +67,18 @@ let getProduct = (req, res) => {
                     // (datafinitiRes.body.records[0].manufacturer || datafinitiRes.body.records[0].brand).toLowerCase()}
                 });
                 if(companyDoc) {
+                    console.log(companyDoc);
                     console.log(`found ${companyName} in wikidata`);
                     if(companyDoc.greenscore != null) {
                         greenScore = companyDoc.greenscore;
                     }
+                    let record = datafinitiRes.body.records[0];
+                    if('categories' in record && record.categories.length > 2) {
+                        for(let i = 0; i < record.categories.length - 2; i++) {
+                            companyDoc.category.push(record.categories[i]);
+                        }
+                    } 
+                    console.log(companyDoc);
                 }          
             }
 
