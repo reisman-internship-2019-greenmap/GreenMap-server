@@ -67,18 +67,31 @@ let getProduct = (req, res) => {
                     // (datafinitiRes.body.records[0].manufacturer || datafinitiRes.body.records[0].brand).toLowerCase()}
                 });
                 if(companyDoc) {
-                    console.log(companyDoc);
                     console.log(`found ${companyName} in wikidata`);
                     if(companyDoc.greenscore != null) {
                         greenScore = companyDoc.greenscore;
                     }
                     let record = datafinitiRes.body.records[0];
                     if('categories' in record && record.categories.length > 2) {
-                        for(let i = 0; i < record.categories.length - 2; i++) {
-                            companyDoc.category.push(record.categories[i]);
-                        }
-                    } 
-                    console.log(companyDoc);
+                        let additionalCategories = record.categories.slice(0, record.categories.length - 2);
+                        models.Company.updateOne({alias: 
+                                { $regex: new RegExp("^" + companyName.toLowerCase() + "$", "i") }
+                        },
+                        {
+                            $push: {
+                                category: {
+                                    $each: additionalCategories
+                                }   
+                            }
+                        },
+                        function(err, result) {
+                            if(err) {
+                                return console.log(err);
+                            } 
+                            console.log(result);
+                        });
+
+                    }
                 }          
             }
 

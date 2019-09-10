@@ -85,10 +85,11 @@ console.log("Completed SPARQL Queries");
 const username = "patsy";                                 //Relevant information to access our MongoDB collection
 const password = "patsy";                                 //Change this information for uploading to a different database
 const context = "greenmap";
-const database_name = "sample_test";
+const database_name = "test";
 // const url = "mongodb+srv://" + username + ":" + password + "@" + context + "-crohe.gcp.mongodb.net/test?retryWrites=true"
-const url = "mongodb://localhost:27017/";
-const collection_name = 'esg';
+// const url = "mongodb://localhost:27017/";
+const url = "mongodb+srv://captain:mohXeKEhDzdN@gmcluster0-9jmfo.gcp.mongodb.net/test?retryWrites=true&w=majority";
+const collection_name = 'companies';
 
 //{"alias" : { $all: ["HP"] } }
 

@@ -192,7 +192,8 @@ Promise.all(promises.map(p => p.catch(() => undefined))).then(function(values){ 
       const context = "greenmap";
       const database_name = "test";
       // const url = "mongodb+srv://" + username + ":" + password + "@" + context + "-crohe.gcp.mongodb.net/test?retryWrites=true"
-      const url = "mongodb+srv://NimeshNayaju:Wikidata@cluster0-koyae.mongodb.net/test?retryWrites=true&w=majority"
+      // const url = "mongodb+srv://NimeshNayaju:Wikidata@cluster0-koyae.mongodb.net/test?retryWrites=true&w=majority"
+      const url = "mongodb+srv://captain:mohXeKEhDzdN@gmcluster0-9jmfo.gcp.mongodb.net/test?retryWrites=true&w=majority";
       const collection_name = 'companies';
 
       MongoClient.connect(url, {useNewUrlParser: true}, function(err, client){    //Establish connection to the database
