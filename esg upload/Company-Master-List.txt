@@ -3879,7 +3879,7 @@ Autodesk, Inc
 Goldman Sachs Group Inc
 Consolidated Edison
 Lloyds Banking Group
-IHS Inc.
+IHS Inc
 Actavis
 BCE
 Richemont
@@ -3944,7 +3944,7 @@ Pfizer
 AkzoNobel
 Statoil
 H&M
-Nike Inc.
+Nike Inc
 Ingersoll-Rand
 Lockheed Martin
 Central Japan Railway
@@ -4104,7 +4104,7 @@ Analog Devices
 Jacobs Engineering
 Astellas Pharma
 Wyndham Worldwide
-BP plc.
+BP plc
 Hyundai Heavy Industries
 BNP Paribas
 Avery Dennison Corporation
@@ -4132,7 +4132,7 @@ British American Tobacco
 PTT Public Company Limited
 Home Depot
 Infosys Limited
-Google Inc.
+Google Inc
 Infosys
 Ping An Insurance Group
 Air Products & Chemicals
@@ -4173,7 +4173,7 @@ Tata Steel Limited
 ArcelorMittal France
 Gannett
 Smithfield
-Sunoco Inc.
+Sunoco Inc
 Continental AG
 Walgreens
 Domtar Corporation
@@ -4191,13 +4191,13 @@ TE Connectivity Ltd
 Glencore International
 Medtronic
 CBRE Group
-AbbVie Inc.
+AbbVie Inc
 Twenty-First Century Fox, Inc
 Royal Dutch Shell plc
 SINOPEC Engineering (Group)
 Barclays
 Surgutneftegaz
-SK Hynix Inc.
+SK Hynix Inc
 Hong Kong Exchanges
 Herbalife
 GDF SUEZ
@@ -4222,7 +4222,7 @@ Dick's Sporting Goods
 Perrigo
 Canadian Natural Resources
 Principal Financial Group
-Dillard's, Inc.
+Dillard's, Inc
 Metallurgical Corp of China
 Tokio Marine Holdings
 Whole Foods Market Inc
@@ -4233,7 +4233,7 @@ Linde
 Baxter International
 Power Corp of Canada
 Taiwan Semiconductor Manufacturing
-GameStop Corp.
+GameStop Corp
 Glencore Xstrata
 Weyerhaeuser
 JFE Holdings
@@ -4252,7 +4252,7 @@ Plum Creek Timber
 Woodside Petroleum
 Seven & I Holdings
 Health Care REIT
-JPMorgan Chase & Co.
+JPMorgan Chase & Co
 SPX Corporation
 Molson Coors Brewing
 Reckitt Benckiser Group
@@ -4272,7 +4272,7 @@ Terex Corporation
 United Technologies Corporation
 Oshkosh
 Northrop Grumman
-Citigroup Inc.
+Citigroup Inc
 Bank Audi
 Flowserve
 Manulife Financial
@@ -4369,7 +4369,7 @@ Entergy
 Wisconsin Energy
 FirstRand
 WR Grace
-Kraft Foods Group Inc.
+Kraft Foods Group Inc
 Marsh & McLennan
 Thomson Reuters
 PNC Financial Services
@@ -4404,7 +4404,7 @@ Ecopetrol
 Hanesbrands
 Travelers Cos
 Petrobras
-Hospira, Inc.
+Hospira, Inc
 Microchip Technology
 Zurich Insurance Group
 SanDisk Corporation
@@ -4472,7 +4472,7 @@ Rockwell Collins
 Public Service Enterprise
 Church & Dwight
 Huntington Bancshares
-Facebook Inc.
+Facebook Inc
 NTPC Limited
 Expedia Inc
 ITC Limited
@@ -4512,7 +4512,7 @@ Alliance Data Systems
 Broadcom
 Astra International
 CONSOL Energy
-Red Hat Inc.
+Red Hat Inc
 China Communications Construction
 Petsmart
 Femsa
@@ -4656,7 +4656,7 @@ BBVA Provincial
 SL Green Realty
 Banco Occidental
 Jardine Strategic Holdings Limited
-Groupon Inc.
+Groupon Inc
 China Petroleum & Chemical
 Celanese
 Crown Castle International
