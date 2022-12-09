@@ -25,7 +25,7 @@
     "barcodelookup": "^1.0.2",
     "body-parser": "^1.19.0",
     "dotenv": "^8.0.0",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "mongodb": "^3.2.7",
     "mongoose": "^5.7.5",
     "request": "^2.88.0",
