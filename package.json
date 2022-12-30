@@ -37,7 +37,7 @@
     "eslint": "^5.16.0",
     "eslint-config-strongloop": "^2.1.0",
     "expect": "^24.7.1",
-    "mocha": "^6.1.4",
+    "mocha": "^10.2.0",
     "nodemon": "^1.18.11"
   }
 }
